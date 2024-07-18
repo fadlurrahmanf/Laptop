@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rumah Sakit Harapan Kita</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/boxicons.css">
+    <script src="../js/sweetalert/sweetalert.js"></script>
+</head>
+
+<body>
+    <!-- HEADER START -->
+    <header id="my-header" class="bg-white absolute left-0 z-50 h-[40px]
+        w-[260px] m-[3vh] rounded-md flex justify-center items-center shadow-md"></header>
+    <div id="nav-menu" class="relative flex items-center h-screen"></div>
+    <!-- HEADER END -->
+
+    <!-- CONTAINER START -->
+    <div class="bg-clarifier">
+
+        <!-- INTERVAL COUNT -->
+        <div id="invCount"
+            class="w-[14.5vw] h-[4vw] block bg-white p-[0.5vw] m-[0.7vw] rounded-[0.5vw] shadow-lg bg-opacity-60">
+            <div class="w-full">
+                <h1 class="text-left font-bold text-[0.85vw] pb-[0.2vw] pt-[0.3vw]
+                    text-slate-500">INTERVAL COUNT</h1>
+            </div>
+            <div class="flex justify-start gap-x-[0.5vw]">
+                <input type="radio" class="radio" id="invBulan" onchange="toggleInterval(this.id)">
+                <p class="text-[0.85vw] text-slate-600">Monthly</p>
+                <input type="radio" class="radio" id="invMinggu" onchange="toggleInterval(this.id)">
+                <p class="text-[0.85vw] text-slate-600">Weekly</p>
+                <input type="radio" class="radio" id="invHari" checked onchange="toggleInterval(this.id)">
+                <p class="text-[0.85vw] text-slate-600">Daily</p>
+            </div>
+        </div>
+
+        <!-- ROW 1 -->
+        <div class="flex justify-center items-center gap-x-[1vw] px-[1vw] pt-[15.5vh]">
+            <!-- FAD 1 -->
+            <div class="block bg-white w-1/2 h-[10.2vw] rounded-md bg-opacity-60">
+                <div class="card-header">
+                    <h1 class="tittle-product">FLOCCULATOR DRAIN CONTROL [A]</h1>
+                    <div class="text-[0.85vw] text-slate-500 flex justify-center 
+                        items-center gap-x-[0.3vw]"> Mode:
+                        <input type="radio" class="radio" id="AutoFAD_auto" checked
+                            onchange="toggleMode('A', this.id, 'AutoFAD_manual', '1')"> Auto
+                        <input type="radio" class="radio" id="AutoFAD_manual"
+                            onchange="toggleMode('B', this.id, 'AutoFAD_auto', '1')"> Manual
+                    </div>
+                </div>
+                <div id="autoFlocc1">
+                    <div class="flex justify-between items-center px-[0.7vw] my-[0.2vw]">
+                        <div class="text-[0.85vw] text-slate-500 flex justify-center 
+                        items-center gap-x-[0.3vw]"> Auto Mode:
+                            <input type="radio" class="radio" id="AutoFAD_paralel"
+                                onclick="toggleRadio(this.id, 'AutoFAD_sequence')"> Paralel
+                            <input type="radio" class="radio" id="AutoFAD_sequence"
+                                onclick="toggleRadio(this.id, 'AutoFAD_paralel')"> Sequence
+                        </div>
+                        <div class="text-[0.85vw] text-slate-500">Status:
+                            <input id="FAD_status" type="number" class="bg-transparent border-[0.1vw] rounded-[0.5vw] border-slate-500
+                            border-t-0 border-b-0 w-[7vw] placeholder:text-center" readonly>
+                        </div>
+                    </div>
+                    <div class="flex justify-center items-center px-[0.7vw] mt-[0.2vw] gap-x-[2.85vw]" id="FADA">
+                        <h1 class="text-[0.85vw] text-slate-500">V1</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V2</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V3</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V4</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V5</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V6</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V7</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V8</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V9</h1>
+                    </div>
+                    <div class="flex justify-center items-center px-[0.7vw] gap-x-[0.8vw]">
+                        <input id="FADA1" type="number" class="auto-input" placeholder="sec">
+                        <input id="FADA2" type="number" class="auto-input" placeholder="sec">
+                        <input id="FADA3" type="number" class="auto-input" placeholder="sec">
+                        <input id="FADA4" type="number" class="auto-input" placeholder="sec">
+                        <input id="FADA5" type="number" class="auto-input" placeholder="sec">
+                        <input id="FADA6" type="number" class="auto-input" placeholder="sec">
+                        <input id="FADA7" type="number" class="auto-input" placeholder="sec">
+                        <input id="FADA8" type="number" class="auto-input" placeholder="sec">
+                        <input id="FADA9" type="number" class="auto-input" placeholder="sec">
+                    </div>
+                    <div class="flex justify-center items-center px-[0.7vw] gap-x-[1.9vw]">
+                        <input id="countFADA1" type="number" class="auto-count" readonly>
+                        <input id="countFADA2" type="number" class="auto-count" readonly>
+                        <input id="countFADA3" type="number" class="auto-count" readonly>
+                        <input id="countFADA4" type="number" class="auto-count" readonly>
+                        <input id="countFADA5" type="number" class="auto-count" readonly>
+                        <input id="countFADA6" type="number" class="auto-count" readonly>
+                        <input id="countFADA7" type="number" class="auto-count" readonly>
+                        <input id="countFADA8" type="number" class="auto-count" readonly>
+                        <input id="countFADA9" type="number" class="auto-count" readonly>
+                    </div>
+                    <div class="flex justify-between items-center px-[0.7vw] mt-[0.5vw]">
+                        <div class="flex justify-center items-center gap-x-[0.5vw]">
+                            <h1 class="text-[0.85vw] text-slate-500">Interval:</h1>
+                            <input id="FADA10" type="number" class="auto-interval" placeholder="min">
+                        </div>
+                        <div class="flex justify-center items-center gap-x-[0.8vw]">
+                            <button onclick="btnCheck(this.id)" id="FADS_check" class="btn-check">Check</button>
+                            <button onclick="btnSubmit(this.id)" id="FADS_submit" class="btn-submit"
+                                disabled>Submit</button>
+                            <button onclick="btnStop(this.id)" id="FADS_stop" class="btn-stop" disabled>Stop</button>
+                            <button onclick="btnRun(this.id)" id="FADS_run" class="btn-run" disabled>Run</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="manualFlocc1" class="hidden">
+                    <div class="flex justify-between items-center px-[0.7vw] my-[0.2vw]">
+                        <div class="text-[0.85vw] text-slate-500 flex justify-center 
+                        items-center gap-x-[0.3vw]"> Manual Mode:
+                        </div>
+                        <div class="text-[0.85vw] text-slate-500">Status:
+                            <input id="FAD_status2" type="number" class="bg-transparent border-[0.1vw] rounded-[0.5vw] border-slate-500
+                            border-t-0 border-b-0 w-[7vw] placeholder:text-center" readonly>
+                        </div>
+                    </div>
+                    <div class="flex justify-center items-center px-[0.7vw] mt-[0.2vw] gap-x-[2.85vw]" id="FADA">
+                        <h1 class="text-[0.85vw] text-slate-500">V1</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V2</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V3</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V4</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V5</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V6</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V7</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V8</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V9</h1>
+                    </div>
+                    <div class="flex justify-center items-center px-[0.7vw] gap-x-[0.7vw]">
+                        <button onclick="buttonManual(this.id)" id="manualFAD1" class="btn-manual">OFF</button>
+                        <button onclick="buttonManual(this.id)" id="manualFAD2" class="btn-manual">OFF</button>
+                        <button onclick="buttonManual(this.id)" id="manualFAD3" class="btn-manual">OFF</button>
+                        <button onclick="buttonManual(this.id)" id="manualFAD4" class="btn-manual">OFF</button>
+                        <button onclick="buttonManual(this.id)" id="manualFAD5" class="btn-manual">OFF</button>
+                        <button onclick="buttonManual(this.id)" id="manualFAD6" class="btn-manual">OFF</button>
+                        <button onclick="buttonManual(this.id)" id="manualFAD7" class="btn-manual">OFF</button>
+                        <button onclick="buttonManual(this.id)" id="manualFAD8" class="btn-manual">OFF</button>
+                        <button onclick="buttonManual(this.id)" id="manualFAD9" class="btn-manual">OFF</button>
+                    </div>
+                    <div class="flex justify-center items-center px-[0.7vw] gap-x-[1.9vw]">
+                        <input id="mcountFADA1" type="number" class="auto-count" readonly>
+                        <input id="mcountFADA2" type="number" class="auto-count" readonly>
+                        <input id="mcountFADA3" type="number" class="auto-count" readonly>
+                        <input id="mcountFADA4" type="number" class="auto-count" readonly>
+                        <input id="mcountFADA5" type="number" class="auto-count" readonly>
+                        <input id="mcountFADA6" type="number" class="auto-count" readonly>
+                        <input id="mcountFADA7" type="number" class="auto-count" readonly>
+                        <input id="mcountFADA8" type="number" class="auto-count" readonly>
+                        <input id="mcountFADA9" type="number" class="auto-count" readonly>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SA -->
+            <div class="block bg-white w-1/2 h-[10.2vw] rounded-md bg-opacity-60">
+                <div class="card-header">
+                    <h1 class="tittle-product">CLARIFIER DRAIN CONTROL [A]</h1>
+                    <div class="text-[0.85vw] text-slate-500 flex justify-center 
+                        items-center gap-x-[0.3vw]"> Mode:
+                        <input type="radio" class="radio" id="AutoSAD_auto" checked
+                            onchange="toggleMode('A', this.id, 'AutoSAD_manual', '3')"> Auto
+                        <input type="radio" class="radio" id="AutoSAD_manual"
+                            onchange="toggleMode('B', this.id, 'AutoSAD_auto', '3')"> Manual
+                    </div>
+                </div>
+                <div id="autoFlocc3">
+                    <div class="flex justify-between items-center px-[0.7vw] my-[0.2vw]">
+                        <div class="text-[0.85vw] text-slate-500 flex justify-center 
+                        items-center gap-x-[0.3vw]"> Auto Mode:
+                            <input type="radio" class="radio" id="AutoSAD_paralel"
+                                onclick="toggleRadio(this.id, 'AutoSAD_sequence')"> Paralel
+                            <input type="radio" class="radio" id="AutoSAD_sequence"
+                                onclick="toggleRadio(this.id, 'AutoSAD_paralel')"> Sequence
+                        </div>
+                        <div class="text-[0.85vw] text-slate-500">Status:
+                            <input id="SAD_status" type="number" class="bg-transparent border-[0.1vw] rounded-[0.5vw] border-slate-500
+                            border-t-0 border-b-0 w-[7vw] placeholder:text-center" readonly>
+                        </div>
+                    </div>
+                    <div class="flex justify-center items-center px-[0.7vw] mt-[0.2vw] gap-x-[3.2vw]" id="FADA">
+                        <h1 class="text-[0.85vw] text-slate-500">V1</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V2</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V3</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V4</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V5</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V6</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V7</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V8</h1>
+                    </div>
+                    <div class="flex justify-center items-center px-[0.7vw] gap-x-[1.2vw]">
+                        <input id="SADA1" type="number" class="auto-input" placeholder="sec">
+                        <input id="SADA2" type="number" class="auto-input" placeholder="sec">
+                        <input id="SADA3" type="number" class="auto-input" placeholder="sec">
+                        <input id="SADA4" type="number" class="auto-input" placeholder="sec">
+                        <input id="SADA5" type="number" class="auto-input" placeholder="sec">
+                        <input id="SADA6" type="number" class="auto-input" placeholder="sec">
+                        <input id="SADA7" type="number" class="auto-input" placeholder="sec">
+                        <input id="SADA8" type="number" class="auto-input" placeholder="sec">
+                    </div>
+                    <div class="flex justify-center items-center px-[0.7vw] gap-x-[2.3vw]">
+                        <input id="countSADA1" type="number" class="auto-count" readonly>
+                        <input id="countSADA2" type="number" class="auto-count" readonly>
+                        <input id="countSADA3" type="number" class="auto-count" readonly>
+                        <input id="countSADA4" type="number" class="auto-count" readonly>
+                        <input id="countSADA5" type="number" class="auto-count" readonly>
+                        <input id="countSADA6" type="number" class="auto-count" readonly>
+                        <input id="countSADA7" type="number" class="auto-count" readonly>
+                        <input id="countSADA8" type="number" class="auto-count" readonly>
+                    </div>
+                    <div class="flex justify-between items-center px-[0.7vw] mt-[0.5vw]">
+                        <div class="flex justify-center items-center gap-x-[0.5vw]">
+                            <h1 class="text-[0.85vw] text-slate-500">Interval:</h1>
+                            <input id="SADA9" type="number" class="auto-interval" placeholder="min">
+                        </div>
+                        <div class="flex justify-center items-center gap-x-[0.8vw]">
+                            <button onclick="btnCheck(this.id)" id="SADS_check" class="btn-check">Check</button>
+                            <button onclick="btnSubmit(this.id)" id="SADS_submit" class="btn-submit" disabled>Submit</button>
+                            <button onclick="btnStop(this.id)" id="SADS_stop" class="btn-stop" disabled>Stop</button>
+                            <button onclick="btnRun(this.id)" id="SADS_run" class="btn-run" disabled>Run</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="manualFlocc3" class="hidden">
+                    <div class="flex justify-between items-center px-[0.7vw] my-[0.2vw]">
+                        <div class="text-[0.85vw] text-slate-500 flex justify-center 
+                        items-center gap-x-[0.3vw]"> Manual Mode:
+                        </div>
+                        <div class="text-[0.85vw] text-slate-500">Status:
+                            <input id="SAD_status2" type="number" class="bg-transparent border-[0.1vw] rounded-[0.5vw] border-slate-500
+                            border-t-0 border-b-0 w-[7vw] placeholder:text-center" readonly>
+                        </div>
+                    </div>
+                    <div class="flex justify-center items-center px-[0.7vw] mt-[0.2vw] gap-x-[3.2vw]" id="SADA">
+                        <h1 class="text-[0.85vw] text-slate-500">V1</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V2</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V3</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V4</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V5</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V6</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V7</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V8</h1>
+                    </div>
+                    <div class="flex justify-center items-center px-[0.7vw] gap-x-[1.05vw]">
+                        <button onclick="buttonManual(this.id)" id="manualSA1" class="btn-manual">OFF</button>
+                        <button onclick="buttonManual(this.id)" id="manualSA2" class="btn-manual">OFF</button>
+                        <button onclick="buttonManual(this.id)" id="manualSA3" class="btn-manual">OFF</button>
+                        <button onclick="buttonManual(this.id)" id="manualSA4" class="btn-manual">OFF</button>
+                        <button onclick="buttonManual(this.id)" id="manualSA5" class="btn-manual">OFF</button>
+                        <button onclick="buttonManual(this.id)" id="manualSA6" class="btn-manual">OFF</button>
+                        <button onclick="buttonManual(this.id)" id="manualSA7" class="btn-manual">OFF</button>
+                        <button onclick="buttonManual(this.id)" id="manualSA8" class="btn-manual">OFF</button>
+                    </div>
+                    <div class="flex justify-center items-center px-[0.7vw] gap-x-[2.25vw]">
+                        <input id="mcountSADA1" type="number" class="auto-count" readonly>
+                        <input id="mcountSADA2" type="number" class="auto-count" readonly>
+                        <input id="mcountSADA3" type="number" class="auto-count" readonly>
+                        <input id="mcountSADA4" type="number" class="auto-count" readonly>
+                        <input id="mcountSADA5" type="number" class="auto-count" readonly>
+                        <input id="mcountSADA6" type="number" class="auto-count" readonly>
+                        <input id="mcountSADA7" type="number" class="auto-count" readonly>
+                        <input id="mcountSADA8" type="number" class="auto-count" readonly>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ROW 2 -->
+        <div class="flex justify-center items-center gap-x-[1vw] px-[1vw] pt-[2vh]">
+            <!-- FBD -->
+            <div class="block bg-white w-1/2 h-[10.2vw] rounded-md bg-opacity-60">
+                <div class="card-header">
+                    <h1 class="tittle-product">FLOCCULATOR DRAIN CONTROL [B]</h1>
+                    <div class="text-[0.85vw] text-slate-500 flex justify-center 
+                        items-center gap-x-[0.3vw]"> Mode:
+                        <input type="radio" class="radio" id="AutoFBD_auto" checked
+                            onchange="toggleMode('A', this.id, 'AutoFBD_manual', '2')"> Auto
+                        <input type="radio" class="radio" id="AutoFBD_manual"
+                            onchange="toggleMode('B', this.id, 'AutoFBD_auto', '2')"> Manual
+                    </div>
+                </div>
+                <div id="autoFlocc2">
+                    <div class="flex justify-between items-center px-[0.7vw] my-[0.2vw]">
+                        <div class="text-[0.85vw] text-slate-500 flex justify-center 
+                        items-center gap-x-[0.3vw]"> Auto Mode:
+                            <input type="radio" class="radio" id="AutoFBD_paralel"
+                                onclick="toggleRadio(this.id, 'AutoFBD_sequence')"> Paralel
+                            <input type="radio" class="radio" id="AutoFBD_sequence"
+                                onclick="toggleRadio(this.id, 'AutoFBD_paralel')"> Sequence
+                        </div>
+                        <div class="text-[0.85vw] text-slate-500">Status:
+                            <input id="FBD_status" type="number" class="bg-transparent border-[0.1vw] rounded-[0.5vw] border-slate-500
+                            border-t-0 border-b-0 w-[7vw] placeholder:text-center" readonly>
+                        </div>
+                    </div>
+                    <div class="flex justify-center items-center px-[0.7vw] mt-[0.2vw] gap-x-[2.85vw]" id="FADA">
+                        <h1 class="text-[0.85vw] text-slate-500">V1</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V2</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V3</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V4</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V5</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V6</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V7</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V8</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V9</h1>
+                    </div>
+                    <div class="flex justify-center items-center px-[0.7vw] gap-x-[0.8vw]">
+                        <input id="FBDB1" type="number" class="auto-input" placeholder="sec">
+                        <input id="FBDB2" type="number" class="auto-input" placeholder="sec">
+                        <input id="FBDB3" type="number" class="auto-input" placeholder="sec">
+                        <input id="FBDB4" type="number" class="auto-input" placeholder="sec">
+                        <input id="FBDB5" type="number" class="auto-input" placeholder="sec">
+                        <input id="FBDB6" type="number" class="auto-input" placeholder="sec">
+                        <input id="FBDB7" type="number" class="auto-input" placeholder="sec">
+                        <input id="FBDB8" type="number" class="auto-input" placeholder="sec">
+                        <input id="FBDB9" type="number" class="auto-input" placeholder="sec">
+                    </div>
+                    <div class="flex justify-center items-center px-[0.7vw] gap-x-[1.9vw]">
+                        <input id="countFBDB1" type="number" class="auto-count" readonly>
+                        <input id="countFBDB2" type="number" class="auto-count" readonly>
+                        <input id="countFBDB3" type="number" class="auto-count" readonly>
+                        <input id="countFBDB4" type="number" class="auto-count" readonly>
+                        <input id="countFBDB5" type="number" class="auto-count" readonly>
+                        <input id="countFBDB6" type="number" class="auto-count" readonly>
+                        <input id="countFBDB7" type="number" class="auto-count" readonly>
+                        <input id="countFBDB8" type="number" class="auto-count" readonly>
+                        <input id="countFBDB9" type="number" class="auto-count" readonly>
+                    </div>
+                    <div class="flex justify-between items-center px-[0.7vw] mt-[0.5vw]">
+                        <div class="flex justify-center items-center gap-x-[0.5vw]">
+                            <h1 class="text-[0.85vw] text-slate-500">Interval:</h1>
+                            <input id="FBDB10" type="number" class="auto-interval" placeholder="min">
+                        </div>
+                        <div class="flex justify-center items-center gap-x-[0.8vw]">
+                            <button onclick="btnCheck(this.id)" id="FBDS_check" class="btn-check">Check</button>
+                            <button onclick="btnSubmit(this.id)" id="FBDS_submit" class="btn-submit" disabled>Submit</button>
+                            <button onclick="btnStop(this.id)" id="FBDS_stop" class="btn-stop" disabled>Stop</button>
+                            <button onclick="btnRun(this.id)" id="FBDS_run" class="btn-run" disabled>Run</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="manualFlocc2" class="hidden">
+                    <div class="flex justify-between items-center px-[0.7vw] my-[0.2vw]">
+                        <div class="text-[0.85vw] text-slate-500 flex justify-center 
+                        items-center gap-x-[0.3vw]"> Manual Mode:
+                        </div>
+                        <div class="text-[0.85vw] text-slate-500">Status:
+                            <input id="FBD_status2" type="number" class="bg-transparent border-[0.1vw] rounded-[0.5vw] border-slate-500
+                            border-t-0 border-b-0 w-[7vw] placeholder:text-center" readonly>
+                        </div>
+                    </div>
+                    <div class="flex justify-center items-center px-[0.7vw] mt-[0.2vw] gap-x-[2.85vw]" id="FADA">
+                        <h1 class="text-[0.85vw] text-slate-500">V1</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V2</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V3</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V4</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V5</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V6</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V7</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V8</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V9</h1>
+                    </div>
+                    <div class="flex justify-center items-center px-[0.7vw] gap-x-[0.7vw]">
+                        <button onclick="buttonManual(this.id)" id="manualFBD1" class="btn-manual">OFF</button>
+                        <button onclick="buttonManual(this.id)" id="manualFBD2" class="btn-manual">OFF</button>
+                        <button onclick="buttonManual(this.id)" id="manualFBD3" class="btn-manual">OFF</button>
+                        <button onclick="buttonManual(this.id)" id="manualFBD4" class="btn-manual">OFF</button>
+                        <button onclick="buttonManual(this.id)" id="manualFBD5" class="btn-manual">OFF</button>
+                        <button onclick="buttonManual(this.id)" id="manualFBD6" class="btn-manual">OFF</button>
+                        <button onclick="buttonManual(this.id)" id="manualFBD7" class="btn-manual">OFF</button>
+                        <button onclick="buttonManual(this.id)" id="manualFBD8" class="btn-manual">OFF</button>
+                        <button onclick="buttonManual(this.id)" id="manualFBD9" class="btn-manual">OFF</button>
+                    </div>
+                    <div class="flex justify-center items-center px-[0.7vw] gap-x-[1.9vw]">
+                        <input id="mcountFBDB1" type="number" class="auto-count" readonly>
+                        <input id="mcountFBDB2" type="number" class="auto-count" readonly>
+                        <input id="mcountFBDB3" type="number" class="auto-count" readonly>
+                        <input id="mcountFBDB4" type="number" class="auto-count" readonly>
+                        <input id="mcountFBDB5" type="number" class="auto-count" readonly>
+                        <input id="mcountFBDB6" type="number" class="auto-count" readonly>
+                        <input id="mcountFBDB7" type="number" class="auto-count" readonly>
+                        <input id="mcountFBDB8" type="number" class="auto-count" readonly>
+                        <input id="mcountFBDB9" type="number" class="auto-count" readonly>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SB -->
+            <div class="block bg-white w-1/2 h-[10.2vw] rounded-md bg-opacity-60">
+                <div class="card-header">
+                    <h1 class="tittle-product">CLARIFIER DRAIN CONTROL [B]</h1>
+                    <div class="text-[0.85vw] text-slate-500 flex justify-center 
+                        items-center gap-x-[0.3vw]"> Mode:
+                        <input type="radio" class="radio" id="AutoSBD_auto" checked
+                            onchange="toggleMode('A', this.id, 'AutoSBD_manual', '4')"> Auto
+                        <input type="radio" class="radio" id="AutoSBD_manual"
+                            onchange="toggleMode('B', this.id, 'AutoSBD_auto', '4')"> Manual
+                    </div>
+                </div>
+                <div id="autoFlocc4">
+                    <div class="flex justify-between items-center px-[0.7vw] my-[0.2vw]">
+                        <div class="text-[0.85vw] text-slate-500 flex justify-center 
+                        items-center gap-x-[0.3vw]"> Auto Mode:
+                            <input type="radio" class="radio" id="AutoSBD_paralel"
+                                onclick="toggleRadio(this.id, 'AutoSBD_sequence')"> Paralel
+                            <input type="radio" class="radio" id="AutoSBD_sequence"
+                                onclick="toggleRadio(this.id, 'AutoSBD_paralel')"> Sequence
+                        </div>
+                        <div class="text-[0.85vw] text-slate-500">Status:
+                            <input id="SBD_status" type="number" class="bg-transparent border-[0.1vw] rounded-[0.5vw] border-slate-500
+                            border-t-0 border-b-0 w-[7vw] placeholder:text-center" readonly>
+                        </div>
+                    </div>
+                    <div class="flex justify-center items-center px-[0.7vw] mt-[0.2vw] gap-x-[3.2vw]" id="FADA">
+                        <h1 class="text-[0.85vw] text-slate-500">V1</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V2</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V3</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V4</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V5</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V6</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V7</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V8</h1>
+                    </div>
+                    <div class="flex justify-center items-center px-[0.7vw] gap-x-[1.2vw]">
+                        <input id="SBDB1" type="number" class="auto-input" placeholder="sec">
+                        <input id="SBDB2" type="number" class="auto-input" placeholder="sec">
+                        <input id="SBDB3" type="number" class="auto-input" placeholder="sec">
+                        <input id="SBDB4" type="number" class="auto-input" placeholder="sec">
+                        <input id="SBDB5" type="number" class="auto-input" placeholder="sec">
+                        <input id="SBDB6" type="number" class="auto-input" placeholder="sec">
+                        <input id="SBDB7" type="number" class="auto-input" placeholder="sec">
+                        <input id="SBDB8" type="number" class="auto-input" placeholder="sec">
+                    </div>
+                    <div class="flex justify-center items-center px-[0.7vw] gap-x-[2.3vw]">
+                        <input id="countSBDB1" type="number" class="auto-count" readonly>
+                        <input id="countSBDB2" type="number" class="auto-count" readonly>
+                        <input id="countSBDB3" type="number" class="auto-count" readonly>
+                        <input id="countSBDB4" type="number" class="auto-count" readonly>
+                        <input id="countSBDB5" type="number" class="auto-count" readonly>
+                        <input id="countSBDB6" type="number" class="auto-count" readonly>
+                        <input id="countSBDB7" type="number" class="auto-count" readonly>
+                        <input id="countSBDB8" type="number" class="auto-count" readonly>
+                    </div>
+                    <div class="flex justify-between items-center px-[0.7vw] mt-[0.5vw]">
+                        <div class="flex justify-center items-center gap-x-[0.5vw]">
+                            <h1 class="text-[0.85vw] text-slate-500">Interval:</h1>
+                            <input id="SBDB9" type="number" class="auto-interval" placeholder="min">
+                        </div>
+                        <div class="flex justify-center items-center gap-x-[0.8vw]">
+                            <button onclick="btnCheck(this.id)" id="SBDS_check" class="btn-check">Check</button>
+                            <button onclick="btnSubmit(this.id)" id="SBDS_submit" class="btn-submit" disabled>Submit</button>
+                            <button onclick="btnStop(this.id)" id="SBDS_stop" class="btn-stop" disabled>Stop</button>
+                            <button onclick="btnRun(this.id)" id="SBDS_run" class="btn-run" disabled>Run</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="manualFlocc4" class="hidden">
+                    <div class="flex justify-between items-center px-[0.7vw] my-[0.2vw]">
+                        <div class="text-[0.85vw] text-slate-500 flex justify-center 
+                        items-center gap-x-[0.3vw]"> Manual Mode:
+                        </div>
+                        <div class="text-[0.85vw] text-slate-500">Status:
+                            <input id="SBD_status2" type="number" class="bg-transparent border-[0.1vw] rounded-[0.5vw] border-slate-500
+                            border-t-0 border-b-0 w-[7vw] placeholder:text-center" readonly>
+                        </div>
+                    </div>
+                    <div class="flex justify-center items-center px-[0.7vw] mt-[0.2vw] gap-x-[3.2vw]" id="SADA">
+                        <h1 class="text-[0.85vw] text-slate-500">V1</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V2</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V3</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V4</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V5</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V6</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V7</h1>
+                        <h1 class="text-[0.85vw] text-slate-500">V8</h1>
+                    </div>
+                    <div class="flex justify-center items-center px-[0.7vw] gap-x-[1.05vw]">
+                        <button onclick="buttonManual(this.id)" id="manualSBD1" class="btn-manual">OFF</button>
+                        <button onclick="buttonManual(this.id)" id="manualSBD2" class="btn-manual">OFF</button>
+                        <button onclick="buttonManual(this.id)" id="manualSBD3" class="btn-manual">OFF</button>
+                        <button onclick="buttonManual(this.id)" id="manualSBD4" class="btn-manual">OFF</button>
+                        <button onclick="buttonManual(this.id)" id="manualSBD5" class="btn-manual">OFF</button>
+                        <button onclick="buttonManual(this.id)" id="manualSBD6" class="btn-manual">OFF</button>
+                        <button onclick="buttonManual(this.id)" id="manualSBD7" class="btn-manual">OFF</button>
+                        <button onclick="buttonManual(this.id)" id="manualSBD8" class="btn-manual">OFF</button>
+                    </div>
+                    <div class="flex justify-center items-center px-[0.7vw] gap-x-[2.25vw]">
+                        <input id="mcountSBDB1" type="number" class="auto-count" readonly>
+                        <input id="mcountSBDB2" type="number" class="auto-count" readonly>
+                        <input id="mcountSBDB3" type="number" class="auto-count" readonly>
+                        <input id="mcountSBDB4" type="number" class="auto-count" readonly>
+                        <input id="mcountSBDB5" type="number" class="auto-count" readonly>
+                        <input id="mcountSBDB6" type="number" class="auto-count" readonly>
+                        <input id="mcountSBDB7" type="number" class="auto-count" readonly>
+                        <input id="mcountSBDB8" type="number" class="auto-count" readonly>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ROW 3 -->
+        <div class="flex justify-center items-start gap-x-[1vw] px-[1vw] pt-[2vh]">
+            <!-- F -->
+            <div class="block bg-white w-1/2 h-[6.3vw] rounded-md bg-opacity-60 px-[0.7vw]">
+                <div class="flex justify-center items-center h-1/2 pt-[0.3vw]">
+                    <div class="tittle-product w-1/5">Raw Water</div>
+                    <div class="bg-transparent w-4/5 flex justify-start items-center gap-x-[0.4vw]">
+                        <div class="flex justify-start items-center bg-white w-1/4 rounded-[0.3vw]">
+                            <i class='bx bx-chevron-right bx-flashing bx-md-1 gradient-text'></i>
+                            <div class="block text-left">
+                                <h1 class="text-[0.8vw] text-slate-500">Flow Rate</h1>
+                                <div id="Flow_Rate_Raw" class="text-[0.8vw] font-bold text-slate-500">323
+                                    <span>LPS</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex justify-start items-center bg-white w-1/4 rounded-[0.3vw]">
+                            <i class='bx bx-chevron-right bx-flashing bx-md-1 gradient-text'></i>
+                            <div class="block text-left">
+                                <h1 class="text-[0.8vw] text-slate-500">Turbidity</h1>
+                                <div id="tbdraw" class="text-[0.8vw] font-bold text-slate-500">323
+                                    <span>NTU</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex justify-start items-center bg-white w-1/4 rounded-[0.3vw]">
+                            <i class='bx bx-chevron-right bx-flashing bx-md-1 gradient-text'></i>
+                            <div class="block text-left">
+                                <h1 class="text-[0.8vw] text-slate-500">pH Level</h1>
+                                <div id="phraw" class="text-[0.8vw] font-bold text-slate-500">323
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex justify-start items-center bg-white w-1/4 rounded-[0.3vw]">
+                            <i class='bx bx-chevron-right bx-flashing bx-md-1 gradient-text'></i>
+                            <div class="block text-left">
+                                <h1 class="text-[0.8vw] text-slate-500">SCM</h1>
+                                <div id="scm" class="text-[0.8vw] font-bold text-slate-500">-1.02
+                                    <span>SCU</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex justify-center items-center h-1/2 -mt-[0.3vw]">
+                    <div class="tittle-product w-1/5">Product Water</div>
+                    <div class="bg-transparent w-4/5 flex justify-start items-center gap-x-[0.4vw]">
+                        <div class="flex justify-start items-center bg-white w-1/4 rounded-[0.3vw]">
+                            <i class='bx bx-chevron-right bx-flashing bx-md-1 gradient-text'></i>
+                            <div class="block text-left">
+                                <h1 class="text-[0.8vw] text-slate-500">Flow Rate</h1>
+                                <div id="Flow_Rate_Product" class="text-[0.8vw] font-bold text-slate-500">323
+                                    <span>LPS</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex justify-start items-center bg-white w-1/4 rounded-[0.3vw]">
+                            <i class='bx bx-chevron-right bx-flashing bx-md-1 gradient-text'></i>
+                            <div class="block text-left">
+                                <h1 class="text-[0.8vw] text-slate-500">Turbidity</h1>
+                                <div id="tbdproduct" class="text-[0.8vw] font-bold text-slate-500">323
+                                    <span>NTU</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex justify-start items-center bg-white w-1/4 rounded-[0.3vw]">
+                            <i class='bx bx-chevron-right bx-flashing bx-md-1 gradient-text'></i>
+                            <div class="block text-left">
+                                <h1 class="text-[0.8vw] text-slate-500">pH Level</h1>
+                                <div id="phproduct" class="text-[0.8vw] font-bold text-slate-500">323
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-transparent w-1/4">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- S -->
+            <div class="flex justify-center items-center bg-white w-1/2 h-[4vw] rounded-md bg-opacity-60 px-[0.7vw]">
+                <div class="tittle-product w-1/3">Sedimentation Turbidity</div>
+                <div class="bg-transparent w-2/3 flex justify-start items-center gap-x-[0.4vw]">
+                    <div class="flex justify-start items-center bg-white w-1/2 rounded-[0.3vw]">
+                        <i class='bx bx-chevron-right bx-flashing bx-md-1 gradient-text'></i>
+                        <div class="block text-left">
+                            <h1 class="text-[0.8vw] text-slate-500">Turbidity A</h1>
+                            <div id="TBDSA" class="text-[0.8vw] font-bold text-slate-500">323
+                                <span>NTU</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-start items-center bg-white w-1/2 rounded-[0.3vw]">
+                        <i class='bx bx-chevron-right bx-flashing bx-md-1 gradient-text'></i>
+                        <div class="block text-left">
+                            <h1 class="text-[0.8vw] text-slate-500">Turbidity B</h1>
+                            <div id="TBDSB" class="text-[0.8vw] font-bold text-slate-500">323
+                                <span>NTU</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- CONTAINER END -->
+
+        <!-- LOAD JS FILE -->
+        <script src="../js/clarifier.js"></script>
+        <script src="../js/nav-menu.js"></script>
+</body>
+
+</html>

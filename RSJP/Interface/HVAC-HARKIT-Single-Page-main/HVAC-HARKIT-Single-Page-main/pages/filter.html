@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rumah Sakit Harapan Kita</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../css/boxicons.css">
+        <script src="../js/sweetalert/sweetalert.js"></script>
+    </head>
+
+    <body>
+        <!-- HEADER START -->
+        <!-- <header id="my-header" class="bg-whit absolute left-0 z-50 h-[40px]
+        w-[200px] m-[3vh] rounded-md flex justify-center items-center shadow-md"></header> -->
+        <nav
+            class="bg-slate-100 absolute z-50 h-[440px] w-[210px] m-[1vw] rounded-md flex items-center pl-6 shadow-md"
+            style=" width:17.5vw; height:94vh; margin:1vw; padding-top: 5vh;
+        background: rgba(143, 255, 252, 0.2);
+        border-radius: 5px;
+        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(7.6px);
+        -webkit-backdrop-filter: blur(7.6px);
+        border: 2px solid rgba(4, 4, 4, 0.2);">
+            <ul class="block">
+
+                <li
+                    class="bg-cyan-500 rounded-md flex items-center pt-1 shadow-md"
+                    style="padding: 5px; width: 85%; margin-bottom: 4vh; margin-left:0vw;">
+
+                    <h1
+                        class="flex justify-center items-center h-9 p-3 rounded-md bg-cyan-500 text-white text-center font-semibold text-[1vw] "
+                        style="font-size: 1.3vw; margin-left: 1px; width:15vw; border-color:FFFFFF; text-shadow: 1px 1px 1px rgba(1, 1, 1, 1); box-shadow: 0  5px 5px rgba(0, 0, 0, 0.5);">
+                        HVAC RSJP <br> HARAPAN KITA
+                    </h1>
+
+                </li>
+                <li class="group ">
+                    <a onclick="showSection('section1')"
+                        class="list-menu text-white" id="dashboard"
+                        style="font-size: 1.1vw; text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.6); color:#0a014e">
+                        <span class="pr-3 " style="font-size: 10px ; ">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                class="fill-slate-500" width="24" height="24"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M4 13h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v8a1 1 0 0 0 1
+                                    1zm-1 7a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1H4a1 1 0 0 0-1
+                                    1v4zm10 0a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-7a1 1 0 0 0-1-1h-6a1 1 0 0 0-1
+                                    1v7zm1-10h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1z" />
+                            </svg>
+                        </span> Dashboard</a>
+                </li>
+                <li class="group">
+
+                    <a href="../pages/filter.html" class="list-menu text-white"
+                        id="filter"
+                        style="font-size: 1.1vw; text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.6); color:#0a014e">
+                        <span class="pr-3 ">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                class="fill-slate-500" width="24" height="24"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M18.277 8c.347.596.985 1 1.723 1a2 2 0 0 0 0-4c-.738 0-1.376.404-1.723
+                            1H16V4a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v2H5.723C5.376 5.404 4.738 5 4 5a2 2 0 0 0 0
+                            4c.738 0 1.376-.404 1.723-1H8v.369C5.133 9.84 4.318 12.534 4.091 14H3a1 1 0 0 0-1
+                            1v4a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1h-.877c.197-.959.718-2.406
+                            2.085-3.418A.984.984 0 0 0 9 11h6a.98.98 0 0 0 .792-.419c1.373 1.013 1.895 2.458
+                            2.089 3.419H17a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-4a1 1 0 0
+                            0-1-1h-1.092c-.227-1.466-1.042-4.161-3.908-5.632V8h2.277zM6 18H4v-2h2v2zm14
+                            0h-2v-2h2v2zm-6-9h-4V5h4v4z" />
+                            </svg>
+                        </span> Cathlab Room</a>
+                </li>
+
+                <li class="group">
+                    <a href="../pages/overview.html"
+                        class="list-menu text-white" id="overview"
+                        style="font-size: 1.1vw; text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.6); color:#0a014e">
+                        <span class="pr-3">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                class="fill-slate-500" width="24" height="24"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M3 4v5h2V5h4V3H4a1 1 0 0 0-1 1zm18 5V4a1 1 0 0 0-1-1h-5v2h4v4h2zm-2
+                                10h-4v2h5a1 1 0 0 0 1-1v-5h-2v4zM9 21v-2H5v-4H3v5a1 1 0 0 0 1 1h5zM2 11h20v2H2z" />
+                            </svg>
+                        </span> Machine Room</a>
+                </li>
+
+            </ul>
+
+        </nav>
+        <!-- <div id="nav-time" class="relative flex items-center h-screen"></div> -->
+        <!-- HEADER END -->
+
+        <!-- CONTAINER START -->
+
+        <div id="myModal" class="modal">
+
+            <div class="modal-content">
+                <span class="close"
+                    onclick="closeModal()">&times;</span>
+                <h2>Password Verification</h2>
+                <input type="password" id="passwordInput"
+                    placeholder="Enter Password">
+                <button class="btn-submit-1"
+                    style="background-color: orangered; width: 7vw; height: 7vh; margin: auto; margin-top: 1vh; display: flex; justify-content: center; align-items: center;transition: background-color 0.7s ease-in-out; font-size: 3vh; font-weight: 600;"
+                    onclick="verifyPassword()">Submit</button>
+            </div>
+        </div>
+        <div class="bg-filter">
+            <!-- 1 -->
+            <div
+                class="flex justify-center items-center gap-x-[1vw] px-[1vw] pt-[42vh]"
+                style="padding-top: 25vh; padding-right: 60vw;">
+
+                <!-- Outdoor Unit 1 -->
+                <div id="exhaust"
+                    class="block "
+                    style="padding-top: 0vh; margin-left: 60vw; width: 8vw; 
+                    background: rgba(143, 33, 165, 0.01);
+                    border-radius: 5px;
+                    box-shadow: 0  2px 2px rgba(0, 0, 0, 0.5);
+                    backdrop-filter: blur(8.8px);
+                    -webkit-backdrop-filter: blur(8.8px)">
+
+                    <div id="exhaustt" class="block" style="width: 6vw;">
+
+                        <div class="flex justify-center items-center"
+                            style="margin-bottom: 5%; margin-top: 5%; ">
+                            <input id="Exhaust_status" type="number"
+                                class="filter-status" readonly>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Outdoor Unit 3 -->
+                <div
+                    class="block "
+                    style="padding-top: 0vh; margin-left: 59vw; width: 8vw; 
+                        background: rgba(143, 33, 165, 0.01);
+                        border-radius: 5px;
+                        box-shadow: 0  2px 2px rgba(0, 0, 0, 0.5);
+                        backdrop-filter: blur(8.8px);
+                        -webkit-backdrop-filter: blur(8.8px)">
+
+                    <div id="AutoF3" class="block" style="width: 6vw;">
+
+                        <div class="flex justify-center items-center"
+                            style="margin-bottom: 5%; margin-top: 5%; ">
+                            <input id="Outdoor_status" type="number"
+                                class="filter-status" readonly>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- 2 -->
+            <div
+                class="flex justify-center items-center gap-x-[1vw] px-[1vw] pt-[42vh]"
+                style="padding-top: 12vh; padding-right: 7.5vw;">
+                <!-- Outdoor Unit 2 -->
+                <div
+                    class="block "
+                    style="padding-top: 0vh; margin-left: 0vw;
+                    background: rgba(143, 33, 165, 0.01);
+                    border-radius: 5px;
+                    box-shadow: 0  2px 2px rgba(0, 0, 0, 0.5);
+                    backdrop-filter: blur(8.8px);
+                    -webkit-backdrop-filter: blur(8.8px)">
+                    <div class="flex justify-between items-center">
+                        <!-- <h1
+                            class="text-slate-500 font-semibold text-[0.8vw]"
+                            style="font-size: x-small; text-align: center; font-weight: bold;">OUTDOOR
+                            UNIT</h1> -->
+
+                    </div>
+
+                    <div id="AutoF3" class="block" style="width: 6vw;">
+
+                        <!-- <h1 class="text-slate-500 text-[0.85vw]"
+                            style="font-size: small; color: aliceblue; text-align: center;">Status</h1> -->
+                        <div class="flex justify-center items-center"
+                            style="margin-bottom: 5%; margin-top: 5%; ">
+                            <input id="Heater1_status" type="number"
+                                class="filter-status" readonly>
+                        </div>
+
+                        <!-- <div
+                            class="flex justify-center items-center gap-x-[0.8vw]"
+                            style="padding-top: 1vh;">
+                            <button onclick="btnStop(this.id)" id="FI3_stop"
+                                class="btn-stop-1">Stop</button>
+                            <button onclick="btnRun(this.id)" id="FI3_run"
+                                class="btn-run-1"
+                                style="background-color: rgb(6 182 212);">Run</button>
+                        </div> -->
+                    </div>
+
+                </div>
+                <!-- Outdoor Unit 1 -->
+                <div
+                    class="block "
+                    style="padding-top: 0vh; margin-left: 1vw;
+                    background: rgba(143, 33, 165, 0.01);
+                    border-radius: 5px;
+                    box-shadow: 0  2px 2px rgba(0, 0, 0, 0.5);
+                    backdrop-filter: blur(8.8px);
+                    -webkit-backdrop-filter: blur(8.8px)">
+                    <div class="flex justify-between items-center">
+                        <!-- <h1
+                            class="text-slate-500 font-semibold text-[0.8vw]"
+                            style="font-size: x-small; text-align: center; font-weight: bold;">OUTDOOR
+                            UNIT</h1> -->
+
+                    </div>
+
+                    <div id="AutoF3" class="block" style="width: 6vw;">
+
+                        <!-- <h1 class="text-slate-500 text-[0.85vw]"
+                            style="font-size: small; color: aliceblue; text-align: center;">Status</h1> -->
+                        <div class="flex justify-center items-center"
+                            style="margin-bottom: 5%; margin-top: 5%;">
+                            <input id="Heater2_status" type="number"
+                                class="filter-status" readonly>
+                        </div>
+
+                        <!-- <div
+                            class="flex justify-center items-center gap-x-[0.8vw]"
+                            style="padding-top: 1vh;">
+                            <button onclick="btnStop(this.id)" id="FI3_stop"
+                                class="btn-stop-1">Stop</button>
+                            <button onclick="btnRun(this.id)" id="FI3_run"
+                                class="btn-run-1"
+                                style="background-color: rgb(6 182 212);">Run</button>
+                        </div> -->
+                    </div>
+
+                </div>
+                <!-- Outdoor Unit 2 -->
+                <div
+                    class="block "
+                    style="padding-top: 0vh; margin-left: 4vw;
+                    background: rgba(143, 33, 165, 0.01);
+                    border-radius: 5px;
+                    box-shadow: 0  2px 2px rgba(0, 0, 0, 0.5);
+                    backdrop-filter: blur(8.8px);
+                    -webkit-backdrop-filter: blur(8.8px)">
+                    <div class="flex justify-between items-center">
+                        <!-- <h1
+                            class="text-slate-500 font-semibold text-[0.8vw]"
+                            style="font-size: x-small; text-align: center; font-weight: bold;">OUTDOOR
+                            UNIT</h1> -->
+
+                    </div>
+
+                    <div id="AutoF3" class="block" style="width: 6vw;">
+
+                        <!-- <h1 class="text-slate-500 text-[0.85vw]"
+                            style="font-size: small; color: aliceblue; text-align: center;">Status</h1> -->
+                        <div class="flex justify-center items-center"
+                            style="margin-bottom: 5%; margin-top: 5%;">
+                            <input id="AHU_status" type="number"
+                                class="filter-status" readonly>
+                        </div>
+
+                        <!-- <div
+                            class="flex justify-center items-center gap-x-[0.8vw]"
+                            style="padding-top: 1vh;">
+                            <button onclick="btnStop(this.id)" id="FI3_stop"
+                                class="btn-stop-1">Stop</button>
+                            <button onclick="btnRun(this.id)" id="FI3_run"
+                                class="btn-run-1"
+                                style="background-color: rgb(6 182 212);">Run</button>
+                        </div> -->
+                    </div>
+
+                </div>
+
+                <div
+                    class="block "
+                    style="padding-top: 0vh; margin-left: 5vw;margin-right: 8vw;
+                    background: rgba(143, 33, 165, 0.01);
+                    border-radius: 5px;
+                    box-shadow: 0  2px 2px rgba(0, 0, 0, 0.5);
+                    backdrop-filter: blur(8.8px);
+                    -webkit-backdrop-filter: blur(8.8px)">
+                    <div class="flex justify-between items-center">
+                        <!-- <h1
+                            class="text-slate-500 font-semibold text-[0.8vw]"
+                            style="font-size: x-small; text-align: center; font-weight: bold;">OUTDOOR
+                            UNIT</h1> -->
+
+                    </div>
+
+                    <div id="AutoF3" class="block" style="width: 6vw;">
+
+                        <!-- <h1 class="text-slate-500 text-[0.85vw]"
+                            style="font-size: small; color: aliceblue; text-align: center;">Status</h1> -->
+                        <div class="flex justify-center items-center"
+                            style="margin-bottom: 5%; margin-top: 5%;">
+                            <input id="Booster_status" type="number"
+                                class="filter-status" readonly>
+                        </div>
+                        <!-- button -->
+                        <!-- <div
+                            class="flex justify-center items-center gap-x-[0.8vw]"
+                            style="padding-top: 1vh;">
+                            <button onclick="btnStop(this.id)" id="FI3_stop"
+                                class="btn-stop-1">Stop</button>
+                            <button onclick="btnRun(this.id)" id="FI3_run"
+                                class="btn-run-1"
+                                style="background-color: rgb(6 182 212);">Run</button>
+                        </div> -->
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Machine Room -->
+            <div
+                class="flex justify-center items-center mx-[2vw] gap-x-[1vw] pt-[1vw]"
+                style="padding-top: 25vh; margin-left: 2vw; height: 20vh; ">
+                <div
+                    class="flex justify-center items-center  w-1/2 h-[5vw] rounded-md bg-opacity-65 px-[0.7vw]"
+                    style="height: 25vh; width: 37vw; margin-left: 0vw; padding-right: 5vw;">
+                    <!-- <div class="tittle-product w-1/3"
+                        style="font-size: 3vh; margin-left:1vw;"> MACHINE ROOM
+                    </div> -->
+                    <div
+                        class="bg-transparent w-full flex justify-start items-center gap-x-[0.4vw]"
+                        style="margin-left: 5.5vw;
+                        box-shadow: 0  5px 5px rgba(0, 0, 0, 0.5);
+                        border-radius: 10px;
+                        backdrop-filter: blur(10.8px);
+                        -webkit-backdrop-filter: blur(10.8px);
+                        height: 25vh;
+                        padding-left: 2vw;
+                        padding-right: 2vw;
+                        ">
+                        <div
+                            class="flex justify-center items-center  w-1/2 rounded-[0.3vw] py-[0.5vw]">
+                            <i
+                                class='bx bx-chevron-right bx-flashing bx-md-1 gradient-text'></i>
+                            <div class="block text-left"
+                                style="color: aliceblue; text-align: center;">
+                                <h1 class="text-[1vw] text-slate-500"
+                                    style="font-size: 1vw; ">Temperature
+                                    [T]</h1>
+                                <div id="TBDSAa"
+                                    class="text-[0.8vw] font-bold text-slate-500"
+                                    style="font-size: 10vh; text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.986);">24<span>°C</span></div>
+                            </div>
+                        </div>
+                        <div
+                            class="flex justify-center items-center  w-1/2 rounded-[0.3vw] py-[0.5vw]">
+                            <i
+                                class='bx bx-chevron-right bx-flashing bx-md-1 gradient-text'></i>
+                            <div class="block text-left"
+                                style="color: aliceblue; text-align: center;">
+                                <h1 class="text-[1vw] text-slate-500"
+                                    style="font-size: 1vw;">Relative Humidity
+                                </h1>
+                                <div id="TBDSBb"
+                                    class="text-[0.8vw] font-bold text-slate-500"
+                                    style="font-size: 10vh; text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.986);">50<span>%</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div
+                    class="flex justify-center items-center  w-1/2 h-[5vw] rounded-md bg-opacity-65 px-[0.7vw]"
+                    style="height: 25vh; width: 25vw;">
+                    <!-- <div class="tittle-product w-1/3"
+                        style="font-size: 3vh; margin-left:1vw; margin-right:1vw;">
+                        SETTING </div> -->
+                    <!-- <button onclick="verifyPassword()" class="btn-submit-1"
+                        style="background-color: azure; width: 10vw; height: 7vh; margin-top: 20px;">Verify
+                        Password</button> -->
+                    <div
+                        class="bg-transparent w-full flex justify-start items-center gap-x-[0.8\vw]"
+                        style="margin-left: 0.0vw; 
+                        box-shadow: 0  5px 5px rgba(0, 0, 0, 0.5);
+                        border-radius: 10px;
+                        backdrop-filter: blur(10.8px);
+                        -webkit-backdrop-filter: blur(10.8px);
+                        height: 25vh;
+                        padding-left: 2vw;
+                        padding-right: 2vw;">
+
+                        <div
+                            class="flex justify-center items-center w-1/3 rounded-[0.3vw] py-[0.5vw]">
+                            <div class="block text-left">
+                                <button
+                                    onclick="changeTemperature(1)"
+                                    id="btntempup"
+                                    class="btn-submit-1"
+                                    style="background: rgb(5,195,226);
+                            background: linear-gradient(280deg, rgba(5,195,226,1) 0%, rgba(121,42,227,1) 81%);
+                            width: 7vw; height: 5vh;
+                            box-shadow: 0  3px 3px rgba(0, 0, 0, 0.5);
+                            backdrop-filter: blur(8.8px);
+                            -webkit-backdrop-filter: blur(8.8px)">
+                                    <i
+                                        class='bx bx-chevron-up  gradient-text'
+                                        style="font-size: 2rem;"></i>
+                                </button>
+                                <h1 class="text-[0.8vw] text-slate-500"
+                                    style="font-size: 1.2vh; text-align: center; margin-top: 1vh; ">Temperature
+                                </h1>
+                                <div id="TBDSA"
+                                    class="text-[0.8vw] font-bold text-slate-500"
+                                    style="font-size: 5vh; text-align: center; text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.986);">23<span>°C</span></div>
+                                <button onclick="changeTemperature(-1)"
+                                    id="btntempdown"
+                                    class="btn-submit-1"
+                                    style="background: rgb(5,195,226);
+                            background: linear-gradient(280deg, rgba(5,195,226,1) 0%, rgba(121,42,227,1) 81%);
+                            width: 7vw; height: 5vh;
+                            box-shadow: 0  3px 3px rgba(0, 0, 0, 0.5);
+                            backdrop-filter: blur(8.8px);
+                            -webkit-backdrop-filter: blur(8.8px)">
+                                    <i
+                                        class='bx bx-chevron-down  gradient-text'
+                                        style="font-size: 2rem;"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div
+                            class="flex justify-center items-center w-1/2 rounded-[0.3vw] py-[0.5vw]">
+                            <div class="block text-left">
+                                <button id="btnrhup" onclick="changeRH(1)"
+                                    class="btn-submit-1"
+                                    style="background: rgb(5,195,226);
+                            background: linear-gradient(280deg, rgba(5,195,226,1) 0%, rgba(121,42,227,1) 81%);
+                            width: 7vw; height: 5vh;
+                            box-shadow: 0  3px 3px rgba(0, 0, 0, 0.5);
+                            backdrop-filter: blur(8.8px);
+                            -webkit-backdrop-filter: blur(8.8px)">
+                                    <i
+                                        class='bx bx-chevron-up  gradient-text'
+                                        style="font-size: 2rem;"></i>
+                                </button>
+                                <h1 class="text-[0.8vw] text-slate-500"
+                                    style="font-size: 1.2vh; text-align: center; margin-top: 1vh;">Relative
+                                    Humidity</h1>
+                                <div id="TBDSBRH"
+                                    class="text-[0.8vw] font-bold text-slate-500"
+                                    style="font-size: 5vh; text-align: center; text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.986);">50<span>%</span></div>
+                                <button onclick="changeRH(-1)" id="btnrhdown"
+                                    class="btn-submit-1"
+                                    style="background: rgb(5,195,226);
+                            background: linear-gradient(280deg, rgba(5,195,226,1) 0%, rgba(121,42,227,1) 81%);
+                            width: 7vw; height: 5vh;
+                            box-shadow: 0  3px 3px rgba(0, 0, 0, 0.5);
+                            backdrop-filter: blur(8.8px);
+                            -webkit-backdrop-filter: blur(8.8px)">
+                                    <i
+                                        class='bx bx-chevron-down  gradient-text'
+                                        style="font-size: 2rem;"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <button
+                            id="btnset"
+                            class="btn-submit-1"
+                            onclick="openModal('SET')"
+                            style="background: rgb(5,195,226);
+                            background: linear-gradient(280deg, rgba(5,195,226,1) 0%, rgba(121,42,227,1) 81%);
+                            width: 6vw; height: 5vh;
+                            box-shadow: 0  3px 3px rgba(0, 0, 0, 0.5);
+                            backdrop-filter: blur(8.8px);
+                            -webkit-backdrop-filter: blur(8.8px)">
+                            <i
+                                class='bx bx-setting  gradient-text'
+                                style="font-size: 1.3rem; color: rgb(191, 255, 234);">
+                                <b>SET</b></i>
+                        </button>
+                        <button
+                            id="btndone"
+                            class="btn-submit-1"
+                            onclick="hidebtn()"
+                            style="background: rgb(5,195,226);
+                            background: linear-gradient(280deg, rgba(5,195,226,1) 0%, rgba(121,42,227,1) 81%);
+                            width: 6vw; height: 5vh;
+                            box-shadow: 0  3px 3px rgba(0, 0, 0, 0.5);
+                            backdrop-filter: blur(8.8px);
+                            -webkit-backdrop-filter: blur(8.8px)">
+                            <i
+                                class='bx bx-setting  gradient-text'
+                                style="font-size: 1.3rem; color: rgb(191, 255, 234);">
+                                DONE</i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        <!-- CONTAINER END -->
+
+        <!-- LOAD JS FILE -->
+        <script src="../js/filter.js"></script>
+        <script src="../js/nav-menu.js"></script>
+    </body>
+
+</html>

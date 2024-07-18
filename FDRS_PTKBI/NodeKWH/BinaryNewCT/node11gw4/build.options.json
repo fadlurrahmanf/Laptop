@@ -1,0 +1,11 @@
+{
+  "additionalFiles": "..\\..",
+  "builtInLibrariesFolders": "C:\\Users\\user\\AppData\\Local\\Arduino15\\libraries",
+  "builtInToolsFolders": "",
+  "compiler.optimization_flags": "",
+  "customBuildProperties": "build.warn_data_percentage=75",
+  "fqbn": "esp8266:esp8266:generic:led=2,baud=115200,xtal=80,CrystalFreq=26,eesz=512K64,FlashMode=dout,FlashFreq=40,ResetMethod=nodemcu,dbg=Disabled,lvl=None____,ip=lm2f,vt=flash,exception=disabled,stacksmash=disabled,wipe=none,sdk=nonosdk_190703,ssl=all,mmu=3232,non32xfer=fast",
+  "hardwareFolders": "c:\\Users\\user\\AppData\\Local\\Arduino15\\packages",
+  "otherLibrariesFolders": "c:\\Users\\user\\Documents\\Arduino\\libraries",
+  "sketchLocation": "D:\\Proyek\\ESPNow\\FDRS_PTKBI\\NodeKWH\\NodeKWH"
+}

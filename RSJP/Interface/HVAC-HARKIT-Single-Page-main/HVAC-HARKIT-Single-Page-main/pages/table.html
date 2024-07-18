@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rumah Sakit Harapan Kita</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/boxicons.css">
+    <script src="../js/sweetalert/sweetalert.js"></script>
+    <script src="../js/excel/toExcel.js"></script>
+    <script src="../js/excel/xlsx.full.min.js"></script>
+</head>
+
+<body>
+    <!-- HEADER START -->
+    <header id="my-header" class="bg-white absolute left-0 z-50 h-[40px]
+        w-[260px] m-[3vh] rounded-md flex justify-center items-center shadow-md"></header>
+    <div id="nav-menu" class="relative flex items-center h-screen"></div>
+    <!-- HEADER END -->
+
+    <!-- CONTAINER START -->
+    <div class="bg-tables">
+        <h1 class="font-semibold text-[1vw] pt-[2vw] pl-[3vw] text-slate-600">History Data</h1>
+        <div class="flex justify-center items-center pt-[1vw] p-[3vw] gap-x-[2vw]">
+            <div class="block w-1/2">
+                <h2 class="font-semibold text-[1vw] text-slate-600 pb-[0.4vw]">From :</h2>
+                <input id="from" type="datetime-local" class="w-full p-[0.5vw] rounded-md text-[0.9vw]"></input>
+                <button id="btn-search" onclick="Search()"
+                    class="p-[0.5vw] mt-[0.8vw] bg-cyan-500 rounded-md w-full text-white
+                    hover:bg-cyan-700 active:bg-cyan-400 text-[0.9vw]">Search</button>
+            </div>
+            <div class="block w-1/2">
+                <h2 class="font-semibold text-[1vw] text-slate-600 pb-[0.4vw]">To :</h2>
+                <input id="to" type="datetime-local" class="w-full p-[0.5vw] rounded-md text-[0.9vw]"></input>
+                <button id="btn-download" onclick="toExcel('tableku', 'History Data')"
+                    class="p-[0.5vw] mt-[0.8vw] bg-cyan-500 rounded-md w-full text-white
+                    hover:bg-cyan-700 active:bg-cyan-400 text-[0.9vw]">Download</button>
+            </div>
+        </div>
+        <div class="px-[3vw]">
+            <div class="table-responsive">
+                <div id="tableku" class="h-[55vh]"></div>
+            </div>
+        </div>
+    </div>
+    <!-- CONTAINER END -->
+
+    <!-- LOAD JS FILE -->
+    <script src="../js/table.js"></script>
+    <script src="../js/nav-menu.js"></script>
+</body>
+
+</html>
