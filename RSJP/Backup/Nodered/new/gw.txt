@@ -1,0 +1,5 @@
+HVAC6 : esp138/data
+HVAC6 : esp138/cmd
+
+HVAC5 : esp238/data
+HVAC5 : esp238/cmd
