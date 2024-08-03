@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Dashboard NKP Kelanis">
+    <meta name="author" content="Ganesha Technology">
+    <meta name="keywords" content="made by yogiazy">
+    <link rel="shortcut icon" type="image/x-icon" href="./assets/images/logo/favicon.ico">
+    <title>Dashboard NKP Kelanis </title>
+    <link id="style" href="./assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./assets/css/style.css" rel="stylesheet">
+    <link href="./assets/css/plugins.css" rel="stylesheet">
+    <link href="./assets/css/icons.css" rel="stylesheet">
+    <link href="./assets/switcher/css/switcher.css" rel="stylesheet">
+    <link href="./assets/switcher/demo.css" rel="stylesheet">
+    <link href="./assets/plugins/sweet-alert/sweetalert.min.js" rel="stylesheet">
+    <script src="./assets/js/sweetalert.js"></script>
+
+</head>
+
+<body class="app sidebar-mini ltr light-mode">
+
+    <!-- GLOBAL-LOADER -->
+    <div id="global-loader">
+        <img src="./assets/images/loader.svg" class="loader-img" alt="Loader">
+    </div>
+    <!-- /GLOBAL-LOADER -->
+
+    <!-- PAGE -->
+    <div class="page">
+        <div class="page-main">
+
+            <!-- app-Header -->
+            <div class="app-header header sticky">
+                <div class="container-fluid main-container">
+                    <div class="d-flex">
+                        <a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-bs-toggle="sidebar"
+                            href="javascript:void(0)"></a>
+                        <!-- sidebar-toggle-->
+                        <a class="logo-horizontal " href="index.html">
+                            <img src="./assets/images/logo/logo-adaro-head.png"
+                                class="header-brand-img desktop-logo" alt="logo" style="width: 150px;">
+                            <img src="./assets/images/logo/logo-adaro-head.png"
+                                class="header-brand-img light-logo1" alt="logo" style="width: 150px;">
+                        </a>
+                        <!-- LOGO -->
+                        <!-- <div class="main-header-center ms-3 d-none d-lg-block">
+                            <input type="text" class="form-control" id="typehead" placeholder="Search for results...">
+                            <button class="btn px-0 pt-2"><i class="fe fe-search" aria-hidden="true"></i></button>
+                        </div> -->
+                        <div class="d-flex order-lg-2 ms-auto header-right-icons">
+                            <!-- SEARCH -->
+                            <button class="navbar-toggler navresponsive-toggler d-lg-none ms-auto" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent-4"
+                                aria-controls="navbarSupportedContent-4" aria-expanded="false"
+                                aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon fe fe-more-vertical"></span>
+                            </button>
+                            <div class="navbar navbar-collapse responsive-navbar p-0">
+                                <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
+                                    <div class="d-flex order-lg-2">
+                                        <div class="dropdown d-lg-none d-flex">
+                                            <a href="javascript:void(0)" class="nav-link icon"
+                                                data-bs-toggle="dropdown">
+                                                <i class="fe fe-search"></i>
+                                            </a>
+                                            <div class="dropdown-menu header-search dropdown-menu-start">
+                                                <div class="input-group w-100 p-2">
+                                                    <input type="text" class="form-control" placeholder="Search....">
+                                                    <div class="input-group-text btn btn-primary">
+                                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex">
+                                            <a class="nav-link icon theme-layout nav-link-bg layout-setting">
+                                                <span class="dark-layout"><i class="fe fe-moon"></i></span>
+                                                <span class="light-layout"><i class="fe fe-sun"></i></span>
+                                            </a>
+                                        </div>
+                                        <!-- Theme-Layout -->
+                                        <div class="dropdown d-flex">
+                                            <a class="nav-link icon full-screen-link nav-link-bg">
+                                                <i class="fe fe-minimize fullscreen-button"></i>
+                                            </a>
+                                        </div>
+                                        <!-- FULL-SCREEN -->
+                                        <div class="dropdown d-flex profile-1">
+                                            <a href="javascript:void(0)" data-bs-toggle="dropdown"
+                                                class="nav-link leading-none d-flex">
+                                                <img src="./assets/images/logo/imore-img.png"
+                                                    style="width: 150px;" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /app-Header -->
+
+            <!--APP-SIDEBAR-->
+            <div class="sticky">
+                <div class="app-sidebar__overlay" data-bs-toggle="sidebar"></div>
+                <div class="app-sidebar">
+                    <div class="side-header">
+                        <a class="header-brand1" href="index.html">
+                            <img src="./assets/images/logo/logo-adaro-head.png"
+                                style="width: 150px;" class="header-brand-img desktop-logo" alt="logo">
+                            <img src="./assets/images/logo/favicon.ico" class="header-brand-img toggle-logo"
+                                alt="logo">
+                            <img src="./assets/images/logo/favicon.ico" class="header-brand-img light-logo" alt="logo">
+                            <img src="./assets/images/logo/logo-adaro-head.png"
+                                style="width: 150px;" class="header-brand-img light-logo1" alt="logo">
+                        </a>
+                        <!-- LOGO -->
+                    </div>
+                    <div class="main-sidemenu">
+                        <ul class="side-menu">
+                            <li class="slide">
+                                <a class="side-menu__item has-link" data-bs-toggle="slide" href="index.html"><i
+                                        class="side-menu__icon fa fa-laptop"></i><span
+                                        class="side-menu__label">Dashboard</span></a>
+                            </li>
+                            <li class="slide">
+                                <a class="side-menu__item has-link" data-bs-toggle="slide" href="flowmeter.html"><i
+                                        class="side-menu__icon fa fa-modx"></i><span class="side-menu__label">Flow
+                                        Meter</span></a>
+                            </li>
+                            <li class="slide">
+                                <a class="side-menu__item has-link active" data-bs-toggle="slide" href="tables.html"><i
+                                        class="side-menu__icon fa fa-th-large"></i><span
+                                        class="side-menu__label">Table</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--/APP-SIDEBAR-->
+
+            <!--app-content open-->
+            <div class="main-content app-content mt-0">
+                <div class="side-app">
+
+                    <!-- CONTAINER -->
+                    <div class="main-container container-fluid">
+
+                        <!-- PAGE-HEADER -->
+                        <div class="page-header">
+                            <h1 class="page-title">Tables</h1>
+                            <table class="table table-bordered text-nowrap w-30 datetimetable">
+                                <tr>
+                                    <td>
+                                        <div class="date-input-container">
+                                            <h5>Start date:</h5>
+                                            <input type="text" id="min" name="min" placeholder="DD/MM/YYYY">
+                                            <h5>End date:</h5>
+                                            <input type="text" id="max" name="max" placeholder="DD/MM/YYYY">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-primary" onclick="btnDownload()">Submit</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <!-- PAGE-HEADER END -->
+
+                        <div class="row row-sm">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">File Export</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div id="dataFlowmeterAll" class="table-responsive">
+                                            <table id="file-datatable"
+                                                class="table table-bordered text-nowrap key-buttons border-bottom">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="border-bottom-0">Date</th>
+                                                        <th class="border-bottom-0">Time</th>
+                                                        <th class="border-bottom-0">Fuel Tank 1</th>
+                                                        <th class="border-bottom-0">Fuel Tank 2</th>
+                                                        <th class="border-bottom-0">Fuel Tank 3</th>
+                                                        <th class="border-bottom-0">Fuel Tank 4</th>
+                                                        <th class="border-bottom-0">Temperatur 1</th>
+                                                        <th class="border-bottom-0">Temperatur 2</th>
+                                                        <th class="border-bottom-0">Temperatur 3</th>
+                                                        <th class="border-bottom-0">Temperatur 4</th>
+                                                        <th class="border-bottom-0">Density 1</th>
+                                                        <th class="border-bottom-0">Density 2</th>
+                                                        <th class="border-bottom-0">Density 3</th>
+                                                        <th class="border-bottom-0">Density 4</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="dataTabel">
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- CONTAINER END -->
+                </div>
+            </div>
+            <!--app-content close-->
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="container">
+                <div class="row align-items-center flex-row-reverse">
+                    <div class="col-md-12 col-sm-12 text-center">
+                        Copyright © <span id="year"></span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- FOOTER END -->
+
+        <!-- BACK-TO-TOP -->
+        <a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+        <script src="./assets/js/jquery.min.js"></script>
+        <script src="./assets/plugins/justgauge/justgage.js"></script>
+        <script src="./assets/plugins/justgauge/raphael-2.1.4.min.js"></script>
+        <script src="./assets/plugins/bootstrap/js/popper.min.js"></script>
+        <script src="./assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+        <script src="./assets/js/sticky.js"></script>
+        <script src="./assets/plugins/sidebar/sidebar.js"></script>
+        <script src="./assets/plugins/p-scroll/perfect-scrollbar.js"></script>
+        <script src="./assets/plugins/chart/Chart.bundle.js"></script>
+        <script src="./assets/plugins/chart/utils.js"></script>
+        <script src="./assets/plugins/sidemenu/sidemenu.js"></script>
+        <!-- <script src="./assets/plugins/bootstrap5-typehead/autocomplete.js"></script> -->
+        <!-- <script src="./assets/js/typehead.js"></script> -->
+        <script src="./assets/js/tables-html.js"></script>
+        <script src="./assets/js/themeColors.js"></script>
+        <script src="./assets/js/custom.js"></script>
+        <script src="./assets/js/custom-swicher.js"></script>
+        <script src="./assets/switcher/js/switcher.js"></script>
+        <script src="./assets/plugins/select2/select2.full.min.js"></script>
+
+        <!-- DATA TABLE JS-->
+        <script src="./assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
+        <script src="./assets/plugins/datatable/js/dataTables.bootstrap5.js"></script>
+        <script src="./assets/plugins/datatable/js/dataTables.buttons.min.js"></script>
+        <script src="./assets/plugins/datatable/js/buttons.bootstrap5.min.js"></script>
+        <script src="./assets/plugins/datatable/js/jszip.min.js"></script>
+        <script src="./assets/plugins/datatable/pdfmake/pdfmake.min.js"></script>
+        <script src="./assets/plugins/datatable/pdfmake/vfs_fonts.js"></script>
+        <script src="./assets/plugins/datatable/js/buttons.html5.min.js"></script>
+        <script src="./assets/plugins/datatable/js/buttons.print.min.js"></script>
+        <script src="./assets/plugins/datatable/js/buttons.colVis.min.js"></script>
+        <script src="./assets/plugins/datatable/dataTables.responsive.min.js"></script>
+        <script src="./assets/plugins/datatable/responsive.bootstrap5.min.js"></script>
+        <!-- <script src="./assets/js/table-data.js"></script> -->
+
+        <!-- INTERNAL Date-Time-Table JS -->
+        <script src="./assets/plugins/extension-datatable/date-time/moment.js"></script>
+        <script src="./assets/plugins/extension-datatable/date-time/dataTables.dateTime.min.js"></script>
+        <script src="./assets/js/datetime-table.js"></script>
+
+</body>
+
+</html>

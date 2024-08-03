@@ -1,0 +1,427 @@
+[
+    {
+        "id": "a7bce69d47e2ca50",
+        "type": "tab",
+        "label": "Flow 4",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "fc86e52eb0ae24c4",
+        "type": "inject",
+        "z": "a7bce69d47e2ca50",
+        "name": "COMMAND 0 (Request short access)",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[\"0xFF\",\"0xFF\", \"0xFF\", \"0xFF\", \"0xFF\", \"0xFF\", \"0xFF\", \"0xFF\", \"0xFF\", \"0xFF\", \"0x02\", \"0x80\", \"0x00\", \"0x00\", \"0x82\"]",
+        "payloadType": "bin",
+        "x": 230,
+        "y": 220,
+        "wires": [
+            [
+                "05dbda77cfdb0906"
+            ]
+        ]
+    },
+    {
+        "id": "3e7b032c96389ee3",
+        "type": "debug",
+        "z": "a7bce69d47e2ca50",
+        "name": "GET ADDRESS",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "0b7e244fe614c5e3",
+        "type": "comment",
+        "z": "a7bce69d47e2ca50",
+        "name": "ADDRESS",
+        "info": "",
+        "x": 140,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "66b1cbd51f77721d",
+        "type": "inject",
+        "z": "a7bce69d47e2ca50",
+        "name": "COMMAND 0 (Request short access)",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[\"0xFF\",\"0xFF\",\"0xFF\",\"0xFF\",\"0xFF\",\"0x02\",\"0x80\",\"0x00\",\"0x00\",\"0x82\"]",
+        "payloadType": "bin",
+        "x": 250,
+        "y": 140,
+        "wires": [
+            [
+                "05dbda77cfdb0906"
+            ]
+        ]
+    },
+    {
+        "id": "bcef2cb26c28fa69",
+        "type": "inject",
+        "z": "a7bce69d47e2ca50",
+        "name": "COMMAND 3 (Request long access)",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[\"0xFF\",\"0xFF\",\"0xFF\",\"0xFF\",\"0xFF\",\"0x82\",\"0xA2\",\"0x82\",\"0x55\",\"0x2E\",\"0x3A\",\"0x03\",\"0x00\",\"0xE0\"]",
+        "payloadType": "bin",
+        "x": 220,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4e184cceb98ec440",
+        "type": "inject",
+        "z": "a7bce69d47e2ca50",
+        "name": "COMMAND 1 (Request short access)",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[\"0xFF\",\"0xFF\",\"0xFF\",\"0xFF\",\"0xFF\",\"0xFF\",\"0xFF\",\"0xFF\",\"0xFF\",\"0xFF\",\"0x02\",\"0x80\",\"0x01\",\"0x00\",\"0x83\"]",
+        "payloadType": "bin",
+        "x": 230,
+        "y": 320,
+        "wires": [
+            [
+                "05dbda77cfdb0906"
+            ]
+        ]
+    },
+    {
+        "id": "ed3a7eafbe9c8db8",
+        "type": "function",
+        "z": "a7bce69d47e2ca50",
+        "name": "ARUS",
+        "func": "const inputData = msg.payload;\nconst Current = inputData.slice(19, 22);\n\nmsg.payload = Current\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 850,
+        "y": 280,
+        "wires": [
+            [
+                "aad9c8d3853cfd1c"
+            ]
+        ]
+    },
+    {
+        "id": "5baeb1b35cfa4c87",
+        "type": "debug",
+        "z": "a7bce69d47e2ca50",
+        "name": "debug 41",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1200,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "ddcce1c52c068604",
+        "type": "function",
+        "z": "a7bce69d47e2ca50",
+        "name": "DENSITY",
+        "func": "const inputData = msg.payload;\nconst Density = inputData.slice(23, 26);\n\nmsg.payload = Density\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 340,
+        "wires": [
+            [
+                "40bd89c17bb095b3"
+            ]
+        ]
+    },
+    {
+        "id": "eba11f999edacc7c",
+        "type": "debug",
+        "z": "a7bce69d47e2ca50",
+        "name": "debug 42",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1200,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "aad9c8d3853cfd1c",
+        "type": "function",
+        "z": "a7bce69d47e2ca50",
+        "name": "CONV",
+        "func": "// Fungsi untuk mengonversi array ke representasi IEEE 754\nfunction arrayToFloat(arr) {\n    // Gabungkan elemen-elemen array menjadi satu nilai integer\n    var intValue = 0;\n    for (var i = 0; i < arr.length; i++) {\n        intValue += arr[i] << (8 * (arr.length - 1 - i));\n    }\n\n    // Gunakan DataView untuk mengonversi nilai integer ke float\n    var buffer = new ArrayBuffer(4);\n    var dataView = new DataView(buffer);\n    dataView.setUint32(0, intValue);\n\n    // Baca nilai float dari DataView\n    var floatValue = dataView.getFloat32(0);\n\n    return floatValue;\n}\n\nvar inputArray = msg.payload;\nvar ieee754Float = arrayToFloat(inputArray);\n\nmsg.payload = ieee754Float + \" mA\";\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1010,
+        "y": 280,
+        "wires": [
+            [
+                "5baeb1b35cfa4c87"
+            ]
+        ]
+    },
+    {
+        "id": "40bd89c17bb095b3",
+        "type": "function",
+        "z": "a7bce69d47e2ca50",
+        "name": "CONV",
+        "func": "// Fungsi untuk mengonversi array ke representasi IEEE 754\nfunction arrayToFloat(arr) {\n    // Gabungkan elemen-elemen array menjadi satu nilai integer\n    var intValue = 0;\n    for (var i = 0; i < arr.length; i++) {\n        intValue += arr[i] << (8 * (arr.length - 1 - i));\n    }\n\n    // Gunakan DataView untuk mengonversi nilai integer ke float\n    var buffer = new ArrayBuffer(4);\n    var dataView = new DataView(buffer);\n    dataView.setUint32(0, intValue);\n\n    // Baca nilai float dari DataView\n    var floatValue = dataView.getFloat32(0);\n\n    return floatValue;\n}\n\nvar inputArray = msg.payload;\nvar ieee754Float = arrayToFloat(inputArray);\n\nmsg.payload = ieee754Float + \" g/cm\";\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1010,
+        "y": 340,
+        "wires": [
+            [
+                "eba11f999edacc7c"
+            ]
+        ]
+    },
+    {
+        "id": "ec1408a7f954ced7",
+        "type": "function",
+        "z": "a7bce69d47e2ca50",
+        "name": "APA INI?",
+        "func": "const inputData = msg.payload;\nconst APA_INI = inputData.slice(14, 17);\n\nmsg.payload = APA_INI\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 400,
+        "wires": [
+            [
+                "e48e7c6c310d2fbe"
+            ]
+        ]
+    },
+    {
+        "id": "f22d869ac9010107",
+        "type": "debug",
+        "z": "a7bce69d47e2ca50",
+        "name": "debug 43",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1200,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "e48e7c6c310d2fbe",
+        "type": "function",
+        "z": "a7bce69d47e2ca50",
+        "name": "CONV",
+        "func": "// Fungsi untuk mengonversi array ke representasi IEEE 754\nfunction arrayToFloat(arr) {\n    // Gabungkan elemen-elemen array menjadi satu nilai integer\n    var intValue = 0;\n    for (var i = 0; i < arr.length; i++) {\n        intValue += arr[i] << (8 * (arr.length - 1 - i));\n    }\n\n    // Gunakan DataView untuk mengonversi nilai integer ke float\n    var buffer = new ArrayBuffer(4);\n    var dataView = new DataView(buffer);\n    dataView.setUint32(0, intValue);\n\n    // Baca nilai float dari DataView\n    var floatValue = dataView.getFloat32(0);\n\n    return floatValue;\n}\n\nvar inputArray = msg.payload;\nvar ieee754Float = arrayToFloat(inputArray);\n\nmsg.payload = ieee754Float + \" apa ya?\";\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1010,
+        "y": 400,
+        "wires": [
+            [
+                "f22d869ac9010107"
+            ]
+        ]
+    },
+    {
+        "id": "05dbda77cfdb0906",
+        "type": "serial out",
+        "z": "a7bce69d47e2ca50",
+        "name": "",
+        "serial": "9ab00ea.0ca66f",
+        "x": 570,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "25df8dc1305bff3f",
+        "type": "serial in",
+        "z": "a7bce69d47e2ca50",
+        "name": "",
+        "serial": "9ab00ea.0ca66f",
+        "x": 570,
+        "y": 320,
+        "wires": [
+            [
+                "7cfa4f389625e91f",
+                "2d1c71ce7fe1d4a4",
+                "3e7b032c96389ee3"
+            ]
+        ]
+    },
+    {
+        "id": "7cfa4f389625e91f",
+        "type": "function",
+        "z": "a7bce69d47e2ca50",
+        "name": "function 3",
+        "func": "var a = \"\";\nfor (let i = 0; i < msg.payload.length; i++) {\n    const element = (msg.payload[i]).toString(16);\n    a+=(element)+\" \";\n    \n}\nmsg.payload = a;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 160,
+        "wires": [
+            [
+                "3e7b032c96389ee3"
+            ]
+        ]
+    },
+    {
+        "id": "d7330f92aca21cb0",
+        "type": "inject",
+        "z": "a7bce69d47e2ca50",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[\"0xFF\",\"0xFF\",\"0xFF\",\"0xFF\",\"0xFF\",\"0x82\",\"0x11\",\"0x51\",\"0xC7\",\"0x23\",\"0x79\",\"0x03\",\"0x00\",\"0x5C\"]",
+        "payloadType": "bin",
+        "x": 130,
+        "y": 540,
+        "wires": [
+            [
+                "05dbda77cfdb0906"
+            ]
+        ]
+    },
+    {
+        "id": "2d1c71ce7fe1d4a4",
+        "type": "function",
+        "z": "a7bce69d47e2ca50",
+        "name": "function 4",
+        "func": "var a = \"\";\nfor (let i = 0; i < msg.payload.length; i++) {    \n    const element = (msg.payload[i]).toString(16);\n    if(element.length<2){\n        a+=0;\n    }\n    a += (element) + \" \";\n}\nmsg.payload = a;\nvar arr = [];\nvar b = a.split(\" \");\nmsg.payload = b;\narr.push((b[14] + \" \" + b[15] + \" \" + b[16] + \" \" + b[17]));\narr.push((b[19] + \" \" + b[20] + \" \" + b[21] + \" \" + b[22]));\narr.push((b[24] + \" \" + b[25] + \" \" + b[26] + \" \" + b[27]));\narr.push((b[29] + \" \" + b[30] + \" \" + b[31] + \" \" + b[32]));\narr.push((b[34] + \" \" + b[35] + \" \" + b[36] + \" \" + b[37]));\n\nfor (let i = 0; i < arr.length; i++) {\n    arr[i]=hexToFloat(arr[i]);\n}\n\nmsg.payload = arr;\nreturn msg;\nfunction hexToFloat(hexString) {\n    // Hapus spasi dari string\n    let cleanHexString = hexString.replace(/\\s+/g, '');\n\n    // Buat buffer dari string heksadesimal\n    let buffer = new ArrayBuffer(4);\n    let view = new DataView(buffer);\n\n    // Konversi string heksadesimal ke angka\n    for (let i = 0; i < 4; i++) {\n        view.setUint8(i, parseInt(cleanHexString.substr(i * 2, 2), 16));\n    }\n\n    // Baca nilai float dari buffer\n    let floatNumber = view.getFloat32(0, false); // false untuk big-endian\n\n    return floatNumber;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 460,
+        "wires": [
+            [
+                "3a6f3f07ed5286ee"
+            ]
+        ]
+    },
+    {
+        "id": "3a6f3f07ed5286ee",
+        "type": "debug",
+        "z": "a7bce69d47e2ca50",
+        "name": "debug 47",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1160,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "9ab00ea.0ca66f",
+        "type": "serial-port",
+        "name": "",
+        "serialport": "COM5",
+        "serialbaud": "1200",
+        "databits": "8",
+        "parity": "odd",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "100",
+        "bin": "bin",
+        "out": "interbyte",
+        "addchar": "",
+        "responsetimeout": "10000"
+    }
+]

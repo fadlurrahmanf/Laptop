@@ -1,0 +1,13 @@
+Raspi : 
+username pi
+password deviota123
+
+Anydesk :
+1 184 044 361
+deviota123
+
+IP Address Raspi: 192.168.50.101
+
+Wifi :
+iotelkafi
+1Deviotasolution
