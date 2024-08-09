@@ -1,0 +1,182 @@
+#include <RadioLib.h>
+#include "STM32LowPower.h"
+#include "backup.h"
+
+#define HAL_PWR_MODULE_ENABLED
+
+#define LED       PC13
+#define NSS       PA4
+#define DIO0      PB1
+#define DIO1      PA15
+//#define DIO2      PB3
+#define LORA_RST  PB14
+//#define WAKE_UP   PA0
+//#define SDA       PB9
+//#define SCL       PB8
+//#define RXD       PA10
+//#define TXD       PA9
+#define LORA_ON   PA11
+#define SENSOR    PA0
+#define SENSOR_ON PA1
+#define CONTROL_WORD   0
+#define SAMPLING_REG   1
+#define METER_REG      2
+#define STA_REG        3
+#define SAMPLING_RATE  100
+#define UPDATE_RATE    600
+#define THRESHOLD      500
+
+SX1276 lora = new Module(NSS, DIO0, LORA_RST, DIO1);
+
+String DEVID = "M030";
+uint32_t meterCounter;
+uint32_t samplingCounter;
+uint32_t st1;
+
+void blinkLed(int n) {
+  for (int i = 0; i < n; i++) {
+    digitalWrite(LED, LOW);
+    delay(200);
+    digitalWrite(LED, HIGH);
+    delay(200);
+  }
+}
+
+String getValue(String data, char separator, int index)
+{
+  int found = 0;
+  int strIndex[] = {0, -1};
+  int maxIndex = data.length() - 1;
+
+  for (int i = 0; i <= maxIndex && found <= index; i++) {
+    if (data.charAt(i) == separator || i == maxIndex) {
+      found++;
+      strIndex[0] = strIndex[1] + 1;
+      strIndex[1] = (i == maxIndex) ? i + 1 : i;
+    }
+  }
+
+  return found > index ? data.substring(strIndex[0], strIndex[1]) : "";
+}
+
+// flag to indicate that a packet was received
+volatile bool receivedFlag = false;
+
+// disable interrupt when it's not needed
+volatile bool enableInterrupt = true;
+
+void setFlag(void) {
+  // check if the interrupt is enabled
+  if (!enableInterrupt) {
+    return;
+  }
+
+  // we got a packet, set the flag
+  receivedFlag = true;
+}
+
+String xorChecksum(String s) {
+  byte b = s.charAt(0);
+  for (int i = 1; i < s.length(); i++) {
+    b = b ^ s.charAt(i);
+  }
+  String checksum = String(b, HEX);
+  if (checksum.length() == 1) checksum = "0" + checksum;
+  return checksum;
+}
+
+void sendDataSensor() {
+
+  int state = lora.begin(920.0, 125.0, 9, 7, SX127X_SYNC_WORD, 17, 8, 0);
+  if (state == ERR_NONE) {
+    //Serial.println(F("success!"));
+  } else {
+    //Serial.print(F("failed, code "));
+    //Serial.println(state);
+    blinkLed(20);
+    while (true);
+  }
+
+  //  uint32_t count = getBackupRegister(METER_REG);
+
+  String str = String(DEVID) + "," + String(count);
+  String str1 = xorChecksum(str);
+  str += ":" + str1 + "$";
+  state = lora.scanChannel();
+  int cacah = 0;
+  // tunggu sampai channel nya free
+  while ((state == PREAMBLE_DETECTED) && (cacah < 5)) {
+    delay(random(300, 1000));
+    state = lora.scanChannel();
+    cacah++;
+  }
+
+  state = lora.transmit(str.c_str());
+  if (state == ERR_NONE) {
+    // the packet was successfully transmitted
+    blinkLed(2);
+
+  }
+  lora.setDio0Action(setFlag);
+
+  state = lora.startReceive();
+
+  //Serial.println();
+}
+
+void setup() {
+  // put your setup code here, to run once:
+  //Serial.begin(115200);
+  pinMode(LED, OUTPUT);
+  pinMode(LORA_ON, OUTPUT);
+  digitalWrite(LED, HIGH);
+  digitalWrite(LORA_ON, LOW);
+  enableBackupDomain();
+  LowPower.begin();
+}
+
+void loop() {
+  delay(500);
+  sendDataSensor();
+  if (receivedFlag) {
+    enableInterrupt = false;
+
+    // reset flag
+    receivedFlag = false;
+
+    if (transmitDone) {
+      transmitDone = false;
+    } else {
+      // you can read received data as an Arduino String
+      String str = "";
+      int state = lora.readData(str);
+      bool dataValid = false;  // data from the server
+      int pos = str.indexOf("$");
+      if (pos > 4) {
+        str = str.substring(0, pos);
+        String payload = getValue(str, ':', 0);
+        String checkSum = getValue(str, ':', 1);
+        String calcChecksum = xorChecksum(payload);
+        if (checkSum == calcChecksum) {
+          dataValid = true;
+          str = payload;
+        }
+
+      }
+
+      if (state == ERR_NONE) {
+        if (dataValid) {
+          str += "$";
+          Serial.println(str);
+        }
+      }
+    }
+
+    // put module back to listen mode
+    lora.startReceive();
+
+    // we're ready to receive more packets,
+    // enable interrupt service routine
+    enableInterrupt = true;
+  }
+}
