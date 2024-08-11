@@ -1,0 +1,41 @@
+mysql=
+user DTI
+pass Deviots
+
+router = 
+password Deviotsolution1
+
+wifi 
+ssid = Deviot
+pass =  deviotasolution
+
+wifi 
+ssid = DeviotServer
+pass =  deviotasolution
+
+
+anydesk
+id 417 800 030
+password deviotsolution1
+password deviotaanydesk
+
+
+raspi 
+user = pi
+password = deviota
+
+mqtt
+user : iotelkafi
+pass : deviota
+
+mac address raspi : DC:A6:32:C6:28:37
+ip address raspi : 192.168.0.101
+
+node-red:
+user : editor
+password : hvhAJiXhvjofoHan
+
+user : viewer
+password : viewer
+
+ip : 192.168.0.101

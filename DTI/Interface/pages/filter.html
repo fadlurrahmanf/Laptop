@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Treatment Plant - Drupadi Tirta Intan</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/boxicons.css">
+    <script src="../js/sweetalert/sweetalert.js"></script>
+</head>
+
+<body>
+    <!-- HEADER START -->
+    <header id="my-header" class="bg-white absolute left-0 z-50 h-[40px]
+        w-[260px] m-[3vh] rounded-md flex justify-center items-center shadow-md"></header>
+    <div id="nav-menu" class="relative flex items-center h-screen"></div>
+    <!-- HEADER END -->
+
+    <!-- CONTAINER START -->
+    <div class="bg-filter">
+        <div class="flex justify-center items-center gap-x-[1vw] px-[1vw] pt-[42vh]">
+            <!-- FILTER 1 -->
+            <div class="block bg-white w-[8vw] h-[15.6vw] rounded-[0.5vw] p-[0.7vw]">
+                <div class="flex justify-between items-center">
+                    <h1 class="text-slate-500 font-semibold text-[0.8vw]">FILTER 1</h1>
+                    <input id="FI1_count" type="number" class="filter-count" readonly>
+                </div>
+                <div class="text-[0.85vw] text-slate-500 gap-x-[0.3vw] flex justify-start mt-[0.3vw]">
+                    <input type="radio" class="radio" id="FI1_auto" checked
+                        onchange="toggleMode('A', this.id, 'FI1_manual', '1')"> Auto
+                </div>
+                <div class="text-[0.85vw] text-slate-500 gap-x-[0.3vw] flex justify-start">
+                    <input type="radio" class="radio" id="FI1_manual"
+                        onchange="toggleMode('B', this.id, 'FI1_auto', '1')"> Manual
+                </div>
+                <div id="AutoF1" class="block">
+                    <div class="flex justify-center items-center gap-x-[0.5vw]">
+                        <h1 class="text-[0.85vw] text-slate-500 text-center">Blower</h1>
+                        <h1 class="text-[0.85vw] text-slate-500 text-center">Backwash</h1>
+                    </div>
+                    <div class="flex justify-center items-center gap-x-[0.5vw]">
+                        <input id="FI1_BLO_input" type="number" class="filter-input" placeholder="sec">
+                        <input id="FI1_BWS_input" type="number" class="filter-input" placeholder="sec">
+                    </div>
+                    <h1 class="text-slate-500 text-[0.85vw]">Status</h1>
+                    <div class="flex justify-center items-center">
+                        <input id="FI1_status" type="number" class="filter-status" readonly>
+                    </div>
+                    <div class="flex justify-center items-center gap-x-[0.8vw] my-[0.5vw]">
+                        <button onclick="btnCheck(this.id)" id="FI1_check" class="btn-check-1">Check</button>
+                        <button onclick="btnSubmit(this.id)" id="FI1_submit" class="btn-submit-1">Submit</button>
+                    </div>
+                    <div class="flex justify-center items-center gap-x-[0.8vw]">
+                        <button onclick="btnStop(this.id)" id="FI1_stop" class="btn-stop-1">Stop</button>
+                        <button onclick="btnRun(this.id)" id="FI1_run" class="btn-run-1">Run</button>
+                    </div>
+                </div>
+                <div id="ManualF1" class="hidden">
+                    <div class="flex justify-center items-center gap-x-[0.5vw] my-[0.5vw]">
+                        <button onclick="buttonManual(this.id)" id="FC1IN1" class="btn-manual-1">Inlet</button>
+                        <button onclick="buttonManual(this.id)" id="FC1DR1" class="btn-manual-1">Drain</button>
+                    </div>
+                    <div class="flex justify-center items-center gap-x-[0.5vw] my-[0.5vw]">
+                        <button onclick="buttonManual(this.id)" id="FC1OU1" class="btn-manual-1">Outlet</button>
+                        <button onclick="buttonManual(this.id)" id="FC1BL1" class="btn-manual-1">Blower</button>
+                    </div>
+                    <div class="flex justify-start items-center gap-x-[0.5vw] my-[0.5vw]">
+                        <button onclick="buttonManual(this.id)" id="FC1BW1" class="btn-manual-2">Backwash</button>
+                    </div>
+                </div>
+            </div>
+            <!-- FILTER 2 -->
+            <div class="block bg-white w-[8vw] h-[15.6vw] rounded-[0.5vw] p-[0.7vw]">
+                <div class="flex justify-between items-center">
+                    <h1 class="text-slate-500 font-semibold text-[0.8vw]">FILTER 2</h1>
+                    <input id="FI2_count" type="number" class="filter-count" readonly>
+                </div>
+                <div class="text-[0.85vw] text-slate-500 gap-x-[0.3vw] flex justify-start mt-[0.3vw]">
+                    <input type="radio" class="radio" id="FI2_auto" checked
+                        onchange="toggleMode('A', this.id, 'FI2_manual', '2')"> Auto
+                </div>
+                <div class="text-[0.85vw] text-slate-500 gap-x-[0.3vw] flex justify-start">
+                    <input type="radio" class="radio" id="FI2_manual"
+                        onchange="toggleMode('B', this.id, 'FI2_auto', '2')"> Manual
+                </div>
+                <div id="AutoF2" class="block">
+                    <div class="flex justify-center items-center gap-x-[0.5vw]">
+                        <h1 class="text-[0.85vw] text-slate-500 text-center">Blower</h1>
+                        <h1 class="text-[0.85vw] text-slate-500 text-center">Backwash</h1>
+                    </div>
+                    <div class="flex justify-center items-center gap-x-[0.5vw]">
+                        <input id="FI2_BLO_input" type="number" class="filter-input" placeholder="sec">
+                        <input id="FI2_BWS_input" type="number" class="filter-input" placeholder="sec">
+                    </div>
+                    <h1 class="text-slate-500 text-[0.85vw]">Status</h1>
+                    <div class="flex justify-center items-center">
+                        <input id="FI2_status" type="number" class="filter-status" readonly>
+                    </div>
+                    <div class="flex justify-center items-center gap-x-[0.8vw] my-[0.5vw]">
+                        <button onclick="btnCheck(this.id)" id="FI2_check" class="btn-check-1">Check</button>
+                        <button onclick="btnSubmit(this.id)" id="FI2_submit" class="btn-submit-1">Submit</button>
+                    </div>
+                    <div class="flex justify-center items-center gap-x-[0.8vw]">
+                        <button onclick="btnStop(this.id)" id="FI2_stop" class="btn-stop-1">Stop</button>
+                        <button onclick="btnRun(this.id)" id="FI2_run" class="btn-run-1">Run</button>
+                    </div>
+                </div>
+                <div id="ManualF2" class="hidden">
+                    <div class="flex justify-center items-center gap-x-[0.5vw] my-[0.5vw]">
+                        <button onclick="buttonManual(this.id)" id="FC1IN2" class="btn-manual-1">Inlet</button>
+                        <button onclick="buttonManual(this.id)" id="FC1DR2" class="btn-manual-1">Drain</button>
+                    </div>
+                    <div class="flex justify-center items-center gap-x-[0.5vw] my-[0.5vw]">
+                        <button onclick="buttonManual(this.id)" id="FC1OU2" class="btn-manual-1">Outlet</button>
+                        <button onclick="buttonManual(this.id)" id="FC1BL2" class="btn-manual-1">Blower</button>
+                    </div>
+                    <div class="flex justify-start items-center gap-x-[0.5vw] my-[0.5vw]">
+                        <button onclick="buttonManual(this.id)" id="FC1BW2" class="btn-manual-2">Backwash</button>
+                    </div>
+                </div>
+            </div>
+            <!-- FILTER 3 -->
+            <div class="block bg-white w-[8vw] h-[15.6vw] rounded-[0.5vw] p-[0.7vw]">
+                <div class="flex justify-between items-center">
+                    <h1 class="text-slate-500 font-semibold text-[0.8vw]">FILTER 3</h1>
+                    <input id="FI3_count" type="number" class="filter-count" readonly>
+                </div>
+                <div class="text-[0.85vw] text-slate-500 gap-x-[0.3vw] flex justify-start mt-[0.3vw]">
+                    <input type="radio" class="radio" id="FI3_auto" checked
+                        onchange="toggleMode('A', this.id, 'FI3_manual', '3')"> Auto
+                </div>
+                <div class="text-[0.85vw] text-slate-500 gap-x-[0.3vw] flex justify-start">
+                    <input type="radio" class="radio" id="FI3_manual"
+                        onchange="toggleMode('B', this.id, 'FI3_auto', '3')"> Manual
+                </div>
+                <div id="AutoF3" class="block">
+                    <div class="flex justify-center items-center gap-x-[0.5vw]">
+                        <h1 class="text-[0.85vw] text-slate-500 text-center">Blower</h1>
+                        <h1 class="text-[0.85vw] text-slate-500 text-center">Backwash</h1>
+                    </div>
+                    <div class="flex justify-center items-center gap-x-[0.5vw]">
+                        <input id="FI3_BLO_input" type="number" class="filter-input" placeholder="sec">
+                        <input id="FI3_BWS_input" type="number" class="filter-input" placeholder="sec">
+                    </div>
+                    <h1 class="text-slate-500 text-[0.85vw]">Status</h1>
+                    <div class="flex justify-center items-center">
+                        <input id="FI3_status" type="number" class="filter-status" readonly>
+                    </div>
+                    <div class="flex justify-center items-center gap-x-[0.8vw] my-[0.5vw]">
+                        <button onclick="btnCheck(this.id)" id="FI3_check" class="btn-check-1">Check</button>
+                        <button onclick="btnSubmit(this.id)" id="FI3_submit" class="btn-submit-1">Submit</button>
+                    </div>
+                    <div class="flex justify-center items-center gap-x-[0.8vw]">
+                        <button onclick="btnStop(this.id)" id="FI3_stop" class="btn-stop-1">Stop</button>
+                        <button onclick="btnRun(this.id)" id="FI3_run" class="btn-run-1">Run</button>
+                    </div>
+                </div>
+                <div id="ManualF3" class="hidden">
+                    <div class="flex justify-center items-center gap-x-[0.5vw] my-[0.5vw]">
+                        <button onclick="buttonManual(this.id)" id="FC1IN3" class="btn-manual-1">Inlet</button>
+                        <button onclick="buttonManual(this.id)" id="FC1DR3" class="btn-manual-1">Drain</button>
+                    </div>
+                    <div class="flex justify-center items-center gap-x-[0.5vw] my-[0.5vw]">
+                        <button onclick="buttonManual(this.id)" id="FC1OU3" class="btn-manual-1">Outlet</button>
+                        <button onclick="buttonManual(this.id)" id="FC1BL3" class="btn-manual-1">Blower</button>
+                    </div>
+                    <div class="flex justify-start items-center gap-x-[0.5vw] my-[0.5vw]">
+                        <button onclick="buttonManual(this.id)" id="FC1BW3" class="btn-manual-2">Backwash</button>
+                    </div>
+                </div>
+            </div>
+            <!-- FILTER 4 -->
+            <div class="block bg-white w-[8vw] h-[15.6vw] rounded-[0.5vw] p-[0.7vw]">
+                <div class="flex justify-between items-center">
+                    <h1 class="text-slate-500 font-semibold text-[0.8vw]">FILTER 4</h1>
+                    <input id="FI4_count" type="number" class="filter-count" readonly>
+                </div>
+                <div class="text-[0.85vw] text-slate-500 gap-x-[0.3vw] flex justify-start mt-[0.3vw]">
+                    <input type="radio" class="radio" id="FI4_auto" checked
+                        onchange="toggleMode('A', this.id, 'FI4_manual', '4')"> Auto
+                </div>
+                <div class="text-[0.85vw] text-slate-500 gap-x-[0.3vw] flex justify-start">
+                    <input type="radio" class="radio" id="FI4_manual"
+                        onchange="toggleMode('B', this.id, 'FI4_auto', '4')"> Manual
+                </div>
+                <div id="AutoF4" class="block">
+                    <div class="flex justify-center items-center gap-x-[0.5vw]">
+                        <h1 class="text-[0.85vw] text-slate-500 text-center">Blower</h1>
+                        <h1 class="text-[0.85vw] text-slate-500 text-center">Backwash</h1>
+                    </div>
+                    <div class="flex justify-center items-center gap-x-[0.5vw]">
+                        <input id="FI4_BLO_input" type="number" class="filter-input" placeholder="sec">
+                        <input id="FI4_BWS_input" type="number" class="filter-input" placeholder="sec">
+                    </div>
+                    <h1 class="text-slate-500 text-[0.85vw]">Status</h1>
+                    <div class="flex justify-center items-center">
+                        <input id="FI4_status" type="number" class="filter-status" readonly>
+                    </div>
+                    <div class="flex justify-center items-center gap-x-[0.8vw] my-[0.5vw]">
+                        <button onclick="btnCheck(this.id)" id="FI4_check" class="btn-check-1">Check</button>
+                        <button onclick="btnSubmit(this.id)" id="FI4_submit" class="btn-submit-1">Submit</button>
+                    </div>
+                    <div class="flex justify-center items-center gap-x-[0.8vw]">
+                        <button onclick="btnStop(this.id)" id="FI4_stop" class="btn-stop-1">Stop</button>
+                        <button onclick="btnRun(this.id)" id="FI4_run" class="btn-run-1">Run</button>
+                    </div>
+                </div>
+                <div id="ManualF4" class="hidden">
+                    <div class="flex justify-center items-center gap-x-[0.5vw] my-[0.5vw]">
+                        <button onclick="buttonManual(this.id)" id="FC1IN4" class="btn-manual-1">Inlet</button>
+                        <button onclick="buttonManual(this.id)" id="FC1DR4" class="btn-manual-1">Drain</button>
+                    </div>
+                    <div class="flex justify-center items-center gap-x-[0.5vw] my-[0.5vw]">
+                        <button onclick="buttonManual(this.id)" id="FC1OU4" class="btn-manual-1">Outlet</button>
+                        <button onclick="buttonManual(this.id)" id="FC1BL4" class="btn-manual-1">Blower</button>
+                    </div>
+                    <div class="flex justify-start items-center gap-x-[0.5vw] my-[0.5vw]">
+                        <button onclick="buttonManual(this.id)" id="FC1BW4" class="btn-manual-2">Backwash</button>
+                    </div>
+                </div>
+            </div>
+            <!-- FILTER 5 -->
+            <div class="block bg-white w-[8vw] h-[15.6vw] rounded-[0.5vw] p-[0.7vw]">
+                <div class="flex justify-between items-center">
+                    <h1 class="text-slate-500 font-semibold text-[0.8vw]">FILTER 5</h1>
+                    <input id="FI5_count" type="number" class="filter-count" readonly>
+                </div>
+                <div class="text-[0.85vw] text-slate-500 gap-x-[0.3vw] flex justify-start mt-[0.3vw]">
+                    <input type="radio" class="radio" id="FI5_auto" checked
+                        onchange="toggleMode('A', this.id, 'FI5_manual', '5')"> Auto
+                </div>
+                <div class="text-[0.85vw] text-slate-500 gap-x-[0.3vw] flex justify-start">
+                    <input type="radio" class="radio" id="FI5_manual"
+                        onchange="toggleMode('B', this.id, 'FI5_auto', '5')"> Manual
+                </div>
+                <div id="AutoF5" class="block">
+                    <div class="flex justify-center items-center gap-x-[0.5vw]">
+                        <h1 class="text-[0.85vw] text-slate-500 text-center">Blower</h1>
+                        <h1 class="text-[0.85vw] text-slate-500 text-center">Backwash</h1>
+                    </div>
+                    <div class="flex justify-center items-center gap-x-[0.5vw]">
+                        <input id="FI5_BLO_input" type="number" class="filter-input" placeholder="sec">
+                        <input id="FI5_BWS_input" type="number" class="filter-input" placeholder="sec">
+                    </div>
+                    <h1 class="text-slate-500 text-[0.85vw]">Status</h1>
+                    <div class="flex justify-center items-center">
+                        <input id="FI5_status" type="number" class="filter-status" readonly>
+                    </div>
+                    <div class="flex justify-center items-center gap-x-[0.8vw] my-[0.5vw]">
+                        <button onclick="btnCheck(this.id)" id="FI5_check" class="btn-check-1">Check</button>
+                        <button onclick="btnSubmit(this.id)" id="FI5_submit" class="btn-submit-1">Submit</button>
+                    </div>
+                    <div class="flex justify-center items-center gap-x-[0.8vw]">
+                        <button onclick="btnStop(this.id)" id="FI5_stop" class="btn-stop-1">Stop</button>
+                        <button onclick="btnRun(this.id)" id="FI5_run" class="btn-run-1">Run</button>
+                    </div>
+                </div>
+                <div id="ManualF5" class="hidden">
+                    <div class="flex justify-center items-center gap-x-[0.5vw] my-[0.5vw]">
+                        <button onclick="buttonManual(this.id)" id="FC2IN1" class="btn-manual-1">Inlet</button>
+                        <button onclick="buttonManual(this.id)" id="FC2DR1" class="btn-manual-1">Drain</button>
+                    </div>
+                    <div class="flex justify-center items-center gap-x-[0.5vw] my-[0.5vw]">
+                        <button onclick="buttonManual(this.id)" id="FC2OU1" class="btn-manual-1">Outlet</button>
+                        <button onclick="buttonManual(this.id)" id="FC2BL1" class="btn-manual-1">Blower</button>
+                    </div>
+                    <div class="flex justify-start items-center gap-x-[0.5vw] my-[0.5vw]">
+                        <button onclick="buttonManual(this.id)" id="FC2BW1" class="btn-manual-2">Backwash</button>
+                    </div>
+                </div>
+            </div>
+            <!-- FILTER 6 -->
+            <div class="block bg-white w-[8vw] h-[15.6vw] rounded-[0.5vw] p-[0.7vw]">
+                <div class="flex justify-between items-center">
+                    <h1 class="text-slate-500 font-semibold text-[0.8vw]">FILTER 6</h1>
+                    <input id="FI6_count" type="number" class="filter-count" readonly>
+                </div>
+                <div class="text-[0.85vw] text-slate-500 gap-x-[0.3vw] flex justify-start mt-[0.3vw]">
+                    <input type="radio" class="radio" id="FI6_auto" checked
+                        onchange="toggleMode('A', this.id, 'FI6_manual', '6')"> Auto
+                </div>
+                <div class="text-[0.85vw] text-slate-500 gap-x-[0.3vw] flex justify-start">
+                    <input type="radio" class="radio" id="FI6_manual"
+                        onchange="toggleMode('B', this.id, 'FI6_auto', '6')"> Manual
+                </div>
+                <div id="AutoF6" class="block">
+                    <div class="flex justify-center items-center gap-x-[0.5vw]">
+                        <h1 class="text-[0.85vw] text-slate-500 text-center">Blower</h1>
+                        <h1 class="text-[0.85vw] text-slate-500 text-center">Backwash</h1>
+                    </div>
+                    <div class="flex justify-center items-center gap-x-[0.5vw]">
+                        <input id="FI6_BLO_input" type="number" class="filter-input" placeholder="sec">
+                        <input id="FI6_BWS_input" type="number" class="filter-input" placeholder="sec">
+                    </div>
+                    <h1 class="text-slate-500 text-[0.85vw]">Status</h1>
+                    <div class="flex justify-center items-center">
+                        <input id="FI6_status" type="number" class="filter-status" readonly>
+                    </div>
+                    <div class="flex justify-center items-center gap-x-[0.8vw] my-[0.5vw]">
+                        <button onclick="btnCheck(this.id)" id="FI6_check" class="btn-check-1">Check</button>
+                        <button onclick="btnSubmit(this.id)" id="FI6_submit" class="btn-submit-1">Submit</button>
+                    </div>
+                    <div class="flex justify-center items-center gap-x-[0.8vw]">
+                        <button onclick="btnStop(this.id)" id="FI6_stop" class="btn-stop-1">Stop</button>
+                        <button onclick="btnRun(this.id)" id="FI6_run" class="btn-run-1">Run</button>
+                    </div>
+                </div>
+                <div id="ManualF6" class="hidden">
+                    <div class="flex justify-center items-center gap-x-[0.5vw] my-[0.5vw]">
+                        <button onclick="buttonManual(this.id)" id="FC2IN2" class="btn-manual-1">Inlet</button>
+                        <button onclick="buttonManual(this.id)" id="FC2DR2" class="btn-manual-1">Drain</button>
+                    </div>
+                    <div class="flex justify-center items-center gap-x-[0.5vw] my-[0.5vw]">
+                        <button onclick="buttonManual(this.id)" id="FC2OU2" class="btn-manual-1">Outlet</button>
+                        <button onclick="buttonManual(this.id)" id="FC2BL2" class="btn-manual-1">Blower</button>
+                    </div>
+                    <div class="flex justify-start items-center gap-x-[0.5vw] my-[0.5vw]">
+                        <button onclick="buttonManual(this.id)" id="FC2BW2" class="btn-manual-2">Backwash</button>
+                    </div>
+                </div>
+            </div>
+            <!-- FILTER 7 -->
+            <div class="block bg-white w-[8vw] h-[15.6vw] rounded-[0.5vw] p-[0.7vw]">
+                <div class="flex justify-between items-center">
+                    <h1 class="text-slate-500 font-semibold text-[0.8vw]">FILTER 7</h1>
+                    <input id="FI7_count" type="number" class="filter-count" readonly>
+                </div>
+                <div class="text-[0.85vw] text-slate-500 gap-x-[0.3vw] flex justify-start mt-[0.3vw]">
+                    <input type="radio" class="radio" id="FI7_auto" checked
+                        onchange="toggleMode('A', this.id, 'FI7_manual', '7')"> Auto
+                </div>
+                <div class="text-[0.85vw] text-slate-500 gap-x-[0.3vw] flex justify-start">
+                    <input type="radio" class="radio" id="FI7_manual"
+                        onchange="toggleMode('B', this.id, 'FI7_auto', '7')"> Manual
+                </div>
+                <div id="AutoF7" class="block">
+                    <div class="flex justify-center items-center gap-x-[0.5vw]">
+                        <h1 class="text-[0.85vw] text-slate-500 text-center">Blower</h1>
+                        <h1 class="text-[0.85vw] text-slate-500 text-center">Backwash</h1>
+                    </div>
+                    <div class="flex justify-center items-center gap-x-[0.5vw]">
+                        <input id="FI7_BLO_input" type="number" class="filter-input" placeholder="sec">
+                        <input id="FI7_BWS_input" type="number" class="filter-input" placeholder="sec">
+                    </div>
+                    <h1 class="text-slate-500 text-[0.85vw]">Status</h1>
+                    <div class="flex justify-center items-center">
+                        <input id="FI7_status" type="number" class="filter-status" readonly>
+                    </div>
+                    <div class="flex justify-center items-center gap-x-[0.8vw] my-[0.5vw]">
+                        <button onclick="btnCheck(this.id)" id="FI7_check" class="btn-check-1">Check</button>
+                        <button onclick="btnSubmit(this.id)" id="FI7_submit" class="btn-submit-1">Submit</button>
+                    </div>
+                    <div class="flex justify-center items-center gap-x-[0.8vw]">
+                        <button onclick="btnStop(this.id)" id="FI7_stop" class="btn-stop-1">Stop</button>
+                        <button onclick="btnRun(this.id)" id="FI7_run" class="btn-run-1">Run</button>
+                    </div>
+                </div>
+                <div id="ManualF7" class="hidden">
+                    <div class="flex justify-center items-center gap-x-[0.5vw] my-[0.5vw]">
+                        <button onclick="buttonManual(this.id)" id="FC2IN3" class="btn-manual-1">Inlet</button>
+                        <button onclick="buttonManual(this.id)" id="FC2DR3" class="btn-manual-1">Drain</button>
+                    </div>
+                    <div class="flex justify-center items-center gap-x-[0.5vw] my-[0.5vw]">
+                        <button onclick="buttonManual(this.id)" id="FC2OU3" class="btn-manual-1">Outlet</button>
+                        <button onclick="buttonManual(this.id)" id="FC2BL3" class="btn-manual-1">Blower</button>
+                    </div>
+                    <div class="flex justify-start items-center gap-x-[0.5vw] my-[0.5vw]">
+                        <button onclick="buttonManual(this.id)" id="FC2BW3" class="btn-manual-2">Backwash</button>
+                    </div>
+                </div>
+            </div>
+            <!-- FILTER 8 -->
+            <div class="block bg-white w-[8vw] h-[15.6vw] rounded-[0.5vw] p-[0.7vw]">
+                <div class="flex justify-between items-center">
+                    <h1 class="text-slate-500 font-semibold text-[0.8vw]">FILTER 8</h1>
+                    <input id="FI8_count" type="number" class="filter-count" readonly>
+                </div>
+                <div class="text-[0.85vw] text-slate-500 gap-x-[0.3vw] flex justify-start mt-[0.3vw]">
+                    <input type="radio" class="radio" id="FI8_auto" checked
+                        onchange="toggleMode('A', this.id, 'FI8_manual', '8')"> Auto
+                </div>
+                <div class="text-[0.85vw] text-slate-500 gap-x-[0.3vw] flex justify-start">
+                    <input type="radio" class="radio" id="FI8_manual"
+                        onchange="toggleMode('B', this.id, 'FI8_auto', '8')"> Manual
+                </div>
+                <div id="AutoF8" class="block">
+                    <div class="flex justify-center items-center gap-x-[0.5vw]">
+                        <h1 class="text-[0.85vw] text-slate-500 text-center">Blower</h1>
+                        <h1 class="text-[0.85vw] text-slate-500 text-center">Backwash</h1>
+                    </div>
+                    <div class="flex justify-center items-center gap-x-[0.5vw]">
+                        <input id="FI8_BLO_input" type="number" class="filter-input" placeholder="sec">
+                        <input id="FI8_BWS_input" type="number" class="filter-input" placeholder="sec">
+                    </div>
+                    <h1 class="text-slate-500 text-[0.85vw]">Status</h1>
+                    <div class="flex justify-center items-center">
+                        <input id="FI8_status" type="number" class="filter-status" readonly>
+                    </div>
+                    <div class="flex justify-center items-center gap-x-[0.8vw] my-[0.5vw]">
+                        <button onclick="btnCheck(this.id)" id="FI8_check" class="btn-check-1">Check</button>
+                        <button onclick="btnSubmit(this.id)" id="FI8_submit" class="btn-submit-1">Submit</button>
+                    </div>
+                    <div class="flex justify-center items-center gap-x-[0.8vw]">
+                        <button onclick="btnStop(this.id)" id="FI8_stop" class="btn-stop-1">Stop</button>
+                        <button onclick="btnRun(this.id)" id="FI8_run" class="btn-run-1">Run</button>
+                    </div>
+                </div>
+                <div id="ManualF8" class="hidden">
+                    <div class="flex justify-center items-center gap-x-[0.5vw] my-[0.5vw]">
+                        <button onclick="buttonManual(this.id)" id="FC2IN4" class="btn-manual-1">Inlet</button>
+                        <button onclick="buttonManual(this.id)" id="FC2DR4" class="btn-manual-1">Drain</button>
+                    </div>
+                    <div class="flex justify-center items-center gap-x-[0.5vw] my-[0.5vw]">
+                        <button onclick="buttonManual(this.id)" id="FC2OU4" class="btn-manual-1">Outlet</button>
+                        <button onclick="buttonManual(this.id)" id="FC2BL4" class="btn-manual-1">Blower</button>
+                    </div>
+                    <div class="flex justify-start items-center gap-x-[0.5vw] my-[0.5vw]">
+                        <button onclick="buttonManual(this.id)" id="FC2BW4" class="btn-manual-2">Backwash</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEDIMENTATION TURBIDITY -->
+        <div class="flex justify-center items-center mx-[2vw] gap-x-[1vw] pt-[1vw]">
+            <div class="flex justify-center items-center bg-white w-1/2 h-[5vw] rounded-md bg-opacity-60 px-[0.7vw]">
+                <div class="tittle-product w-1/3">Sedimentation Turbidity</div>
+                <div class="bg-transparent w-2/3 flex justify-start items-center gap-x-[0.4vw]">
+                    <div class="flex justify-start items-center bg-white w-1/2 rounded-[0.3vw] py-[0.5vw]">
+                        <i class='bx bx-chevron-right bx-flashing bx-md-1 gradient-text'></i>
+                        <div class="block text-left">
+                            <h1 class="text-[0.8vw] text-slate-500">Turbidity A</h1>
+                            <div id="TBDSA" class="text-[0.8vw] font-bold text-slate-500">323
+                                <span>NTU</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-start items-center bg-white w-1/2 rounded-[0.3vw] py-[0.5vw]">
+                        <i class='bx bx-chevron-right bx-flashing bx-md-1 gradient-text'></i>
+                        <div class="block text-left">
+                            <h1 class="text-[0.8vw] text-slate-500">Turbidity B</h1>
+                            <div id="TBDSB" class="text-[0.8vw] font-bold text-slate-500">323
+                                <span>NTU</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-center items-center bg-white w-1/2 h-[5vw] rounded-md bg-opacity-60 px-[0.7vw]">
+                <div class="tittle-product w-1/5">Product Water</div>
+                <div class="bg-transparent w-4/5 flex justify-start items-center gap-x-[0.4vw]">
+                    <div class="flex justify-start items-center bg-white w-1/4 rounded-[0.3vw] py-[0.5vw]">
+                        <i class='bx bx-chevron-right bx-flashing bx-md-1 gradient-text'></i>
+                        <div class="block text-left">
+                            <h1 class="text-[0.8vw] text-slate-500">Turbidity</h1>
+                            <div id="tbdproduct" class="text-[0.8vw] font-bold text-slate-500">323
+                                <span>NTU</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-start items-center bg-transparent w-3/4 rounded-[0.3vw] py-[0.5vw]">
+                        <div class="block w-1/2">
+                            <h1 class="text-slate-500 text-[0.85vw] pl-[0.5vw]">Motor</h1>
+                            <div class="flex justify-center items-center gap-x-[0.5vw] mx-[0.5vw]">
+                                <button onclick="btnMBLO(this.id)" id="FI_BLO1" class="btn-manual-1">Blower</button>
+                                <button onclick="btnMBLO(this.id)" id="FI_BLO2" class="btn-manual-1">Blower</button>
+                            </div>
+                        </div>
+                        <div class="block w-1/2">
+                            <h1 class="text-slate-500 text-[0.85vw] pl-[0.5vw]">Pompa</h1>
+                            <div class="flex justify-center items-center gap-x-[0.5vw] mx-[0.5vw]">
+                                <button onclick="btnPBWS(this.id)" id="FI_BWS1" class="btn-manual-2">Backwash</button>
+                                <button onclick="btnPBWS(this.id)" id="FI_BWS2" class="btn-manual-2">Backwash</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SENSOR -->
+        <div class="flex justify-center items-center -mt-[32vw] gap-x-[3vw] mr-[3vw]">
+            <div class="block w-1/8" id="FI1">
+                <button id="FI1_high" class="btn-high" hidden>HIGH</button>
+                <button id="FI1_low" class="btn-low" hidden>LOW</button>
+            </div>
+
+            <div class="block w-1/8" id="FI2">
+                <button id="FI2_high" class="btn-high" hidden>HIGH</button>
+                <button id="FI2_low" class="btn-low" hidden>LOW</button>
+            </div>
+
+            <div class="block w-1/8" id="FI3">
+                <button id="FI3_high" class="btn-high" hidden>HIGH</button>
+                <button id="FI3_low" class="btn-low" hidden>LOW</button>
+            </div>
+
+            <div class="block w-1/8" id="FI4">
+                <button id="FI4_high" class="btn-high" hidden>HIGH</button>
+                <button id="FI4_low" class="btn-low" hidden>LOW</button>
+            </div>
+
+            <div class="block w-1/8" id="FI5">
+                <button id="FI5_high" class="btn-high" hidden>HIGH</button>
+                <button id="FI5_low" class="btn-low" hidden>LOW</button>
+            </div>
+
+            <div class="block w-1/8" id="FI6">
+                <button id="FI6_high" class="btn-high" hidden>HIGH</button>
+                <button id="FI6_low" class="btn-low" hidden>LOW</button>
+            </div>
+
+            <div class="block w-1/8" id="FI7">
+                <button id="FI7_high" class="btn-high" hidden>HIGH</button>
+                <button id="FI7_low" class="btn-low" hidden>LOW</button>
+            </div>
+
+            <div class="block w-1/8" id="FI8">
+                <button id="FI8_high" class="btn-high" hidden>HIGH</button>
+                <button id="FI8_low" class="btn-low" hidden>LOW</button>
+            </div>
+        </div>
+    </div>
+    <!-- CONTAINER END -->
+
+    <!-- LOAD JS FILE -->
+    <script src="../js/filter.js"></script>
+    <script src="../js/nav-menu.js"></script>
+</body>
+
+</html>
