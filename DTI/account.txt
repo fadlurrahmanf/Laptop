@@ -1,6 +1,0 @@
-node-red:
-user : editor
-password : hvhAJiXhvjofoHan
-
-user : viewer
-password : viewer
