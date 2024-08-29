@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Treatment Plant - Drupadi Tirta Intan</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/boxicons.css">
+    <script src="./js/justgauge/justgage.js"></script>
+    <script src="./js/justgauge/raphael-2.1.4.min.js"></script>
+</head>
+
+<body>
+    <!-- HEADER START -->
+    <header id="my-header" class="bg-white absolute left-0 z-50 h-[40px]
+        w-[260px] m-[3vh] rounded-md flex justify-center items-center shadow-md"></header>
+    <div id="nav-menu" class="relative flex items-center h-screen"></div>
+    <!-- HEADER END -->
+
+    <!-- CONTAINER START -->
+    <div class="bg-container">
+        <div class="flex justify-center pt-[3vh]">
+
+            <!-- PRODUCT WATER -->
+            <div class="block bg-white w-1/6 mx-[1.4vw] h-[16vh] rounded-md">
+                <div class="card-header">
+                    <h1 class="tittle-product">Totalizer Product Water</h1>
+                    <i class="bx bxl-tailwind-css bx-md bx-flashing gradient-text"></i>
+                </div>
+                <h1 id="Totalizer_Product_Water0" class="val-product">36,037,722</h1>
+                <h1 class="note-product">
+                    <span id="diffTPW0" class="text-green-500">+0.00</span> Since yesterday
+                </h1>
+            </div>
+
+            <!-- PRODUCT WATER 1 -->
+            <div class="block bg-white w-1/6 mr-[1.4vw] h-[16vh] rounded-md">
+                <div class="card-header">
+                    <h1 class="tittle-product">Totalizer Product Water 1</h1>
+                    <i class="bx bxl-tailwind-css bx-md bx-flashing gradient-text"></i>
+                </div>
+                <h1 id="Totalizer_Product_Water1" class="val-product">36,037,722</h1>
+                <h1 class="note-product">
+                    <span id="diffTPW1" class="text-green-500">+0.00</span> Since yesterday
+                </h1>
+            </div>
+
+            <!-- PRODUCT WATER 2 -->
+            <div class="block bg-white w-1/6 mr-[1.4vw] h-[16vh] rounded-md">
+                <div class="card-header">
+                    <h1 class="tittle-product">Totalizer Product Water 2</h1>
+                    <i class="bx bxl-tailwind-css bx-md bx-flashing gradient-text"></i>
+                </div>
+                <h1 id="Totalizer_Product_Water2" class="val-product">36,037,722</h1>
+                <h1 class="note-product">
+                    <span id="diffTPW2" class="text-green-500">+0.00</span> Since yesterday
+                </h1>
+            </div>
+
+            <!-- RAW WATER -->
+            <div class="block bg-white w-1/6 mr-[1.4vw] h-[16vh] rounded-md">
+                <div class="card-header">
+                    <h1 class="tittle-product">Totalizer Raw Water</h1>
+                    <i class="bx bxl-tailwind-css bx-md bx-flashing gradient-text"></i>
+                </div>
+                <h1 id="Totalizer_Raw_Water" class="val-product">36,037,722</h1>
+                <h1 class="note-product">
+                    <span id="diffTRW" class="text-green-500">+0.00</span> Since yesterday
+                </h1>
+            </div>
+
+            <!-- BACKWASH WATER -->
+            <div class="block bg-white w-1/6 mr-[1.4vw] h-[16vh] rounded-md">
+                <div class="card-header">
+                    <h1 class="tittle-product">Totalizer <br>Backwash Water</h1>
+                    <i class='bx bxl-flutter bx-flashing bx-md-1 gradient-text'></i>
+                </div>
+                <h1 id="Totalizer_Backwash_Water" class="val-product">36,037,722</h1>
+                <h1 class="note-product">
+                    <span id="diffTBW" class="text-green-500">+0.00</span> Since yesterday
+                </h1>
+            </div>
+
+            <!-- RESERVOIR VOLUME -->
+            <div class="block bg-white w-1/6 mr-[1.4vw] h-[16vh] rounded-md">
+                <div class="card-header">
+                    <h1 class="tittle-product">Reservoir <br> Volume</h1>
+                    <i class='bx bx-blanket bx-flashing bx-md-2 gradient-text'></i>
+                </div>
+                <h1 id="Reservoir_Volume" class="val-product">36,037,722</h1>
+                <h1 class="note-product">
+                    <span id="diffreservoir" class="text-green-500">+0.00</span> Since yesterday
+                </h1>
+            </div>
+        </div>
+
+        <!-- RAW WATER INTAKE -->
+        <div class="flex justify-center pt-[3vh]">
+            <div class="block bg-white w-[36.4vw] mx-[1.4vw] h-[32vh] rounded-md">
+                <div class="card-header pb-[0.6vw]">
+                    <h1 class="tittle-product">Raw Water Intake</h1>
+                </div>
+                <div class="flex justify-center items-center">
+                    <div class="block bg-slate-50 w-[15vw] mx-[1vw] h-[24vh] rounded-md">
+                        <div id="gauRaw" class="h-[10vw] flex justify-center items-center pt-[1vw] text-slate-500">
+                        <div id="traw1" class="hidden"></div>
+                        </div>
+                    </div>
+                    <div class="block w-[10vw] mr-[1vw] h-[24vh]">
+                        <div class="pb-[1vw] pt-[1vw] border-b-[0.1vw]">
+                            <h1 class="tittle-product p-[1vw] py-0">Turbidity:</h1>
+                            <div id="tbdraw" class="text-[1.1vw] font-bold text-slate-600 px-[1vw] pt-[0.2vw]">390.2 NTU
+                            </div>
+                        </div>
+                        <div class="pt-[1vw]">
+                            <h1 class="tittle-product p-[1vw] py-0">pH Level:</h1>
+                            <div id="phraw" class="text-[1.1vw] font-bold text-slate-600 px-[1vw] pt-[0.2vw]">8.48</div>
+                        </div>
+                    </div>
+                    <div class="block w-[10vw] mr-[1vw] h-[24vh]">
+                        <div class="pb-[1vw] pt-[1vw] border-b-[0.1vw]">
+                            <h1 class="tittle-product p-[1vw] py-0">Flow Rate:</h1>
+                            <div id="frraw" class="text-[1.1vw] font-bold text-slate-600 px-[1vw] pt-[0.2vw]">0 LPS
+                            </div>
+                        </div>
+                        <div class="pt-[1vw]">
+                            <h1 class="tittle-product p-[1vw] py-0">Totalizer:</h1>
+                            <div id="traw2" class="text-[1.1vw] font-bold text-slate-600 px-[1vw] pt-[0.2vw]">36,037,722
+                                m&sup3;</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CLARIFIER -->
+            <div class="block bg-white w-[40vw] mr-[1.4vw] h-[32vh] rounded-md">
+                <div class="card-header pb-[0.5vw]">
+                    <h1 class="tittle-product">Clarifier</h1>
+                </div>
+                <div class="block w-[96%] h-[80%] mr-[1vw] ml-[0.2vw] -mt-[0.8vw]">
+                    <div class="pb-[0.8vw] pt-[0.8vw] bg-slate-100 rounded-md m-[1vw]">
+                        <div class="flex justify-between items-center px-[1vw]">
+                            <h1 class="tittle-product">Turbidity A</h1>
+                            <i class="bx bxs-analyse bx-spin bx-md-1 gradient-text"></i>
+                        </div>
+                        <div id="tbds1" class="text-[1.1vw] font-bold text-slate-600 px-[1vw]">390.2 NTU
+                        </div>
+                    </div>
+                    <div class="pb-[0.8vw] pt-[0.8vw] bg-slate-100 rounded-md m-[1vw]">
+                        <div class="flex justify-between items-center px-[1vw]">
+                            <h1 class="tittle-product">Turbidity B</h1>
+                            <i class="bx bxs-analyse bx-spin bx-md-1 gradient-text"></i>
+                        </div>
+                        <div id="tbds2" class="text-[1.1vw] font-bold text-slate-600 px-[1vw]">390.2 NTU
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LEVEL RESERVOIR -->
+            <div class="block bg-white w-[40vw] mr-[1.4vw] h-[32vh] rounded-md">
+                <div class="card-header pb-[0.5vw]">
+                    <h1 class="tittle-product">Level Reservoir</h1>
+                </div>
+                <div class="block w-[15vw] mx-[1vw] h-[25vh] rounded-md">
+                    <div id="gaurs1" class="h-[10vw]"></div>
+                    <div class="bg-slate-100 rounded-md py-[0.5vw] w-[12vw] mx-auto">
+                        <h1 class="tittle-product p-[1vw] py-0 text-center pt-[0.1vw]">Reservoir Volume</h1>
+                        <div id="rvol" class="text-[1.1vw] font-bold text-slate-600 
+                        px-[1vw] text-center">390.2 NTU</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PRODUCT WATER -->
+        <div class="flex justify-center pt-[3vh]">
+            <div class="block bg-white w-full mx-[1.4vw] h-[34vh] rounded-md">
+                <div class="card-header">
+                    <h1 class="tittle-product">Product Water</h1>
+                </div>
+                <div class="flex justify-center items-center">
+
+                    <!-- FLOWMETER 1 -->
+                    <div class="block w-[20%] mx-[1vw] h-[25vh] rounded-md">
+                        <div id="gaufm1" class="h-[10vw]"></div>
+                        <div class="bg-slate-100 rounded-md py-[0.5vw] w-[12vw] mx-auto">
+                            <h1 class="tittle-product p-[1vw] py-0 text-center pt-[0.1vw]">Flowmeter 1</h1>
+                            <div id="fmp1" class="text-[1.1vw] font-bold text-slate-600 
+                        px-[1vw] text-center">220 LPS</div>
+                        </div>
+                    </div>
+
+                    <!-- FLOWMETER 2 -->
+                    <div class="block w-[20%] mx-[1vw] h-[25vh] rounded-md">
+                        <div id="gaufm2" class="h-[10vw]"></div>
+                        <div class="bg-slate-100 rounded-md py-[0.5vw] w-[12vw] mx-auto">
+                            <h1 class="tittle-product p-[1vw] py-0 text-center pt-[0.1vw]">Flowmeter 2</h1>
+                            <div id="fmp2" class="text-[1.1vw] font-bold text-slate-600 
+                        px-[1vw] text-center">220 LPS</div>
+                        </div>
+                    </div>
+
+                    <!-- FLOWMETER 3 -->
+                    <div class="block w-[20%] mx-[1vw] h-[25vh] rounded-md">
+                        <div id="gaufm3" class="h-[10vw]"></div>
+                        <div class="bg-slate-100 rounded-md py-[0.5vw] w-[12vw] mx-auto">
+                            <h1 class="tittle-product p-[1vw] py-0 text-center pt-[0.1vw]">Flowmeter 3</h1>
+                            <div id="fmp3" class="text-[1.1vw] font-bold text-slate-600 
+                        px-[1vw] text-center">220 LPS</div>
+                        </div>
+                    </div>
+                    
+                    <!-- TURBIDITY -->
+                    <div class="block w-[40%] h-[34vh] -mt-[1.75vw] ml-[2vw] py-0 my-0 bg-slate-100 rounded-md">
+                        <div class="bg-white rounded-md my-[1vw] mx-[2vw]">
+                            <div class="flex justify-between items-center px-[1vw] pt-[0.3vw] -mb-[0.5vw]">
+                                <h1 class="tittle-product">Turbidity</h1>
+                                <i class="bx bxs-analyse bx-spin bx-md-1 gradient-text"></i>
+                            </div>
+                            <div id="tbdp" class="text-[1.1vw] font-bold text-slate-600 px-[1vw] pb-[0.4vw]">390.2 NTU
+                            </div>
+                        </div>
+
+                        <!-- PH -->
+                        <div class="bg-white rounded-md mb-[0.9vw] mx-[2vw]">
+                            <div class="flex justify-between items-center px-[1vw] pt-[0.3vw] -mb-[0.5vw]">
+                                <h1 class="tittle-product">pH</h1>
+                                <i class="bx bx-vial bx-md bx-flashing gradient-text"></i>
+                            </div>
+                            <div id="phproduct" class="text-[1.1vw] font-bold text-slate-600 px-[1vw] pb-[0.4vw]">6.41
+                            </div>
+                        </div>
+
+                        <!-- CHLOR -->
+                        <div class="bg-white rounded-md mx-[2vw]">
+                            <div class="flex justify-between items-center px-[1vw] pt-[0.3vw] -mb-[0.5vw]">
+                                <h1 class="tittle-product">Chlor</h1>
+                                <i class="bx bx-shape-polygon bx-md bx-flashing gradient-text"></i>
+                            </div>
+                            <div id="cproduct" class="text-[1.1vw] font-bold text-slate-600 px-[1vw] pb-[0.4vw]">0.36 ppm
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- CONTAINER END -->
+
+    <!-- LOAD JS FILE -->
+    <script src="./js/index.js"></script>
+    <script src="./js/nav-menu.js"></script>
+</body>
+
+</html>
