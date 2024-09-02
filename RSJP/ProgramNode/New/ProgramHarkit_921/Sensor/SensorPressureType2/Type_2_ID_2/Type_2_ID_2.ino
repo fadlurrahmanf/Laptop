@@ -4,7 +4,7 @@
 #include <EEPROM.h>
 #include <CayenneLPP.h>
 #include <DFRobot_LWLP.h>
-#include <SimpleSerialShell.h>
+// #include <SimpleSerialShell.h>
 
 // Board PCB_STM32G030C8T6
 #define LED PC13
@@ -16,13 +16,13 @@
 
 #define CTRBYTE 0x02
 
-#define STATUSPIN PB10
-#define READSTATUS PB11
+// #define STATUSPIN PB10
+// #define READSTATUS PB11
 
-uint8_t updatePeriode = 23;
+uint8_t updatePeriode = 13;
 int updateRateSend = updatePeriode * 1000;
 long lastUpdate;
-bool sendSta = false;
+bool sendSta = true;
 uint8_t mode = 0;
 uint8_t deviceId = 2;
 uint8_t networkId = 2;
@@ -126,108 +126,108 @@ void sendStatus()
   // blinkLed(2);
 }
 
-int showID(int /*argc*/ = 0, char ** /*argv*/ = NULL)
-{
-  shell.println(F("Running " __FILE__ ", Built " __DATE__));
-  return 0;
-};
+// int showID(int /*argc*/ = 0, char ** /*argv*/ = NULL)
+// {
+//   shell.println(F("Running " __FILE__ ", Built " __DATE__));
+//   return 0;
+// };
 
-////////////////////////////////////////////////////////////////////////////////
-int setDeviceId(int argc, char **argv)
-{
-  if (argc != 2)
-  {
-    shell.println("bad argument count");
-    return -1;
-  }
-  deviceId = atoi(argv[1]);
-  shell.print("Setting deviceId to ");
-  shell.println(deviceId);
-  id.deviceId = deviceId;
-  EEPROM.put(0, id);
-  return EXIT_SUCCESS;
-}
+// ////////////////////////////////////////////////////////////////////////////////
+// int setDeviceId(int argc, char **argv)
+// {
+//   if (argc != 2)
+//   {
+//     shell.println("bad argument count");
+//     return -1;
+//   }
+//   deviceId = atoi(argv[1]);
+//   shell.print("Setting deviceId to ");
+//   shell.println(deviceId);
+//   id.deviceId = deviceId;
+//   EEPROM.put(0, id);
+//   return EXIT_SUCCESS;
+// }
 
-////////////////////////////////////////////////////////////////////////////////
-int getDeviceId(int /*argc*/, char ** /*argv*/)
-{
-  shell.print("deviceId is ");
-  shell.println(deviceId);
-  return EXIT_SUCCESS;
-}
+// ////////////////////////////////////////////////////////////////////////////////
+// int getDeviceId(int /*argc*/, char ** /*argv*/)
+// {
+//   shell.print("deviceId is ");
+//   shell.println(deviceId);
+//   return EXIT_SUCCESS;
+// }
 
-////////////////////////////////////////////////////////////////////////////////
-int setNetworkId(int argc, char **argv)
-{
-  if (argc != 2)
-  {
-    shell.println("bad argument count");
-    return -1;
-  }
-  networkId = atoi(argv[1]);
-  shell.print("Setting networkId to ");
-  shell.println(networkId);
-  id.networkId = networkId;
-  EEPROM.put(0, id);
-  return EXIT_SUCCESS;
-}
+// ////////////////////////////////////////////////////////////////////////////////
+// int setNetworkId(int argc, char **argv)
+// {
+//   if (argc != 2)
+//   {
+//     shell.println("bad argument count");
+//     return -1;
+//   }
+//   networkId = atoi(argv[1]);
+//   shell.print("Setting networkId to ");
+//   shell.println(networkId);
+//   id.networkId = networkId;
+//   EEPROM.put(0, id);
+//   return EXIT_SUCCESS;
+// }
 
-////////////////////////////////////////////////////////////////////////////////
-int getNetworkId(int /*argc*/, char ** /*argv*/)
-{
-  shell.print("networkId is ");
-  shell.println(networkId);
-  return EXIT_SUCCESS;
-}
+// ////////////////////////////////////////////////////////////////////////////////
+// int getNetworkId(int /*argc*/, char ** /*argv*/)
+// {
+//   shell.print("networkId is ");
+//   shell.println(networkId);
+//   return EXIT_SUCCESS;
+// }
 
-////////////////////////////////////////////////////////////////////////////////
-int setUpdatePeriode(int argc, char **argv)
-{
-  if (argc != 2)
-  {
-    shell.println("bad argument count");
-    return -1;
-  }
-  updatePeriode = atoi(argv[1]);
-  shell.print("Setting updatePeriode to ");
-  shell.println(updatePeriode);
-  id.periode = updatePeriode;
-  EEPROM.put(0, id);
-  updateRateSend = updatePeriode * 1000;
-  return EXIT_SUCCESS;
-}
+// ////////////////////////////////////////////////////////////////////////////////
+// int setUpdatePeriode(int argc, char **argv)
+// {
+//   if (argc != 2)
+//   {
+//     shell.println("bad argument count");
+//     return -1;
+//   }
+//   updatePeriode = atoi(argv[1]);
+//   shell.print("Setting updatePeriode to ");
+//   shell.println(updatePeriode);
+//   id.periode = updatePeriode;
+//   EEPROM.put(0, id);
+//   updateRateSend = updatePeriode * 1000;
+//   return EXIT_SUCCESS;
+// }
 
-////////////////////////////////////////////////////////////////////////////////
-int getUpdatePeriode(int /*argc*/, char ** /*argv*/)
-{
-  shell.print("updatePeriode is ");
-  shell.println(updatePeriode);
-  return EXIT_SUCCESS;
-}
+// ////////////////////////////////////////////////////////////////////////////////
+// int getUpdatePeriode(int /*argc*/, char ** /*argv*/)
+// {
+//   shell.print("updatePeriode is ");
+//   shell.println(updatePeriode);
+//   return EXIT_SUCCESS;
+// }
 
-////////////////////////////////////////////////////////////////////////////////
-int setMode(int argc, char **argv)
-{
-  if (argc != 2)
-  {
-    shell.println("bad argument count");
-    return -1;
-  }
-  mode = atoi(argv[1]);
-  shell.print("Setting mode to ");
-  shell.println(mode);
-  id.mode = mode;
-  EEPROM.put(0, id);
-  return EXIT_SUCCESS;
-}
+// ////////////////////////////////////////////////////////////////////////////////
+// int setMode(int argc, char **argv)
+// {
+//   if (argc != 2)
+//   {
+//     shell.println("bad argument count");
+//     return -1;
+//   }
+//   mode = atoi(argv[1]);
+//   shell.print("Setting mode to ");
+//   shell.println(mode);
+//   id.mode = mode;
+//   EEPROM.put(0, id);
+//   return EXIT_SUCCESS;
+// }
 
-////////////////////////////////////////////////////////////////////////////////
-int getMode(int /*argc*/, char ** /*argv*/)
-{
-  shell.print("Mode is ");
-  shell.println(mode);
-  return EXIT_SUCCESS;
-}
+// ////////////////////////////////////////////////////////////////////////////////
+// int getMode(int /*argc*/, char ** /*argv*/)
+// {
+//   shell.print("Mode is ");
+//   shell.println(mode);
+//   return EXIT_SUCCESS;
+// }
 
 int generateRandom(int minValue, int maxValue)
 {
@@ -284,7 +284,7 @@ void setup()
     id.typeId = typeId;
     id.deviceId = deviceId;
     id.networkId = networkId;
-    id.mode = 1;
+    id.mode = mode;
     id.periode = updatePeriode;
     EEPROM.put(0, id);
   }
@@ -326,21 +326,21 @@ void setup()
   sendSta = false;
   blinkLed(3);
 
-  pinMode(STATUSPIN, OUTPUT);
-  digitalWrite(STATUSPIN, HIGH);
-  pinMode(READSTATUS, INPUT);
+  // pinMode(STATUSPIN, OUTPUT);
+  // digitalWrite(STATUSPIN, HIGH);
+  // pinMode(READSTATUS, INPUT);
 
-  shell.attach(Serial);
-  shell.addCommand(F("id?"), showID);
-  shell.addCommand(F("setNetworkId <networkId>"), setNetworkId);
-  shell.addCommand(F("getNetworkId"), getNetworkId);
-  shell.addCommand(F("setDeviceId <deviceId>"), setDeviceId);
-  shell.addCommand(F("getDeviceId"), getDeviceId);
-  shell.addCommand(F("setMode <mode>"), setMode);
-  shell.addCommand(F("getMode"), getMode);
-  shell.addCommand(F("setUpdatePeriode <updatePeriode>"), setUpdatePeriode);
-  shell.addCommand(F("getUpdatePeriode"), getUpdatePeriode);
-  showID();
+  // shell.attach(Serial);
+  // shell.addCommand(F("id?"), showID);
+  // shell.addCommand(F("setNetworkId <networkId>"), setNetworkId);
+  // shell.addCommand(F("getNetworkId"), getNetworkId);
+  // shell.addCommand(F("setDeviceId <deviceId>"), setDeviceId);
+  // shell.addCommand(F("getDeviceId"), getDeviceId);
+  // shell.addCommand(F("setMode <mode>"), setMode);
+  // shell.addCommand(F("getMode"), getMode);
+  // shell.addCommand(F("setUpdatePeriode <updatePeriode>"), setUpdatePeriode);
+  // shell.addCommand(F("getUpdatePeriode"), getUpdatePeriode);
+  // showID();
 }
 
 void loop()
@@ -402,28 +402,28 @@ void loop()
               Serial.println("request data dieksekusi");
               sendSta = true;
               break;
-            case 1:
-              // change relay
-              Serial.println("request changeRelay dieksekusi");
-              id.networkId = vParams;
-              EEPROM.put(0, id);
-              break;
-            case 2:
-              // ubah nodeId
-              id.deviceId = vParams;
-              EEPROM.put(0, id);
-              break;
-            case 3:
-              // ubah mode
-              id.mode = vParams;
-              EEPROM.put(0, id);
-              break;
-            case 4:
-              // ubah periode
-              id.periode = vParams;
-              updateRateSend = 1000 * id.periode;
-              EEPROM.put(0, id);
-              break;
+            // case 1:
+            //   // change relay
+            //   Serial.println("request changeRelay dieksekusi");
+            //   id.networkId = vParams;
+            //   EEPROM.put(0, id);
+            //   break;
+            // case 2:
+            //   // ubah nodeId
+            //   id.deviceId = vParams;
+            //   EEPROM.put(0, id);
+            //   break;
+            // case 3:
+            //   // ubah mode
+            //   id.mode = vParams;
+            //   EEPROM.put(0, id);
+            //   break;
+            // case 4:
+            //   // ubah periode
+            //   id.periode = vParams;
+            //   updateRateSend = 1000 * id.periode;
+            //   EEPROM.put(0, id);
+            //   break;
             default:
               //
               break;
@@ -443,19 +443,19 @@ void loop()
     int currPeriod = millis();
     if ((currPeriod - lastUpdate) > updateRateSend)
     {
-      lastUpdate = currPeriod + generateRandom(100, 1000);
+      lastUpdate = currPeriod - generateRandom(100, 1000);
       sendStatus();
     }
   }
   if (sendSta)
   {
     sendSta = false;
-    delay(1000);
+    delay(2000);
     sendStatus();
   }
 
-  if (digitalRead(READSTATUS))
-  {
-    shell.executeIfInput();
-  }
+  // if (digitalRead(READSTATUS))
+  // {
+  //   shell.executeIfInput();
+  // }
 }

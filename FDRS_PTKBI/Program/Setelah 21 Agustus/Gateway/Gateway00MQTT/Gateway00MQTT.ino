@@ -10,7 +10,7 @@
 #include <SimpleSerialShell.h>
 #include <EEPROM.h>
 
-const char ctrlByte = '@';
+const char ctrlByte = '1';
 const uint8_t eeprom_size = 255;
 
 #define DIGINP 14
@@ -249,7 +249,9 @@ void setup() {
     shell.addCommand(F("setMQTTTOPICCOMMAND <TOPIC_COMMAND>"), setMQTTTOPICCOMMAND);
     shell.addCommand(F("getInfo"), getInfo);
     shell.addCommand(F("nodeRestart"), nodeRestart);
+    delay(3000);
     showID();
+    payloadId();
   }
 }
 

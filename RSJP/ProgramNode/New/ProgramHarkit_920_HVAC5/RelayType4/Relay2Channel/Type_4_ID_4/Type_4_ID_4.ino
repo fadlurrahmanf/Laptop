@@ -11,11 +11,11 @@
 #define LORA_ON PA11
 
 #define OUT1OFF PB6  //Output1
-#define OUT1ON PB7  //Output1
-#define OUT2OFF PB8 //Output2
-#define OUT2ON PB9  //Output2
-#define PIN1 PC15  // Input1
-#define PIN2 PC14  // Input2
+#define OUT1ON PB7   //Output1
+#define OUT2OFF PB8  //Output2
+#define OUT2ON PB9   //Output2
+#define PIN1 PC15    // Input1
+#define PIN2 PC14    // Input2
 
 #define CTRBYTE 0x09
 
@@ -97,11 +97,11 @@ void changeRelay(uint8_t vParams) {
   for (int i = 0; i < 2; i++) {
     switch (i) {
       case 0:
-        if(bitRead(!vParams, i)){
+        if (!bitRead(vParams, i)) {
           digitalWrite(OUT1ON, HIGH);
           delay(100);
           digitalWrite(OUT1ON, LOW);
-        }else{
+        } else {
           digitalWrite(OUT1OFF, HIGH);
           delay(100);
           digitalWrite(OUT1OFF, LOW);
@@ -109,11 +109,11 @@ void changeRelay(uint8_t vParams) {
         delay(100);
         break;
       case 1:
-        if(bitRead(!vParams, i)){
+        if (!bitRead(vParams, i)) {
           digitalWrite(OUT2ON, HIGH);
           delay(100);
           digitalWrite(OUT2ON, LOW);
-        }else{
+        } else {
           digitalWrite(OUT2OFF, HIGH);
           delay(100);
           digitalWrite(OUT2OFF, LOW);
@@ -194,6 +194,14 @@ void setup() {
   pinMode(OUT2ON, OUTPUT);
   pinMode(PIN1, INPUT);
   pinMode(PIN2, INPUT_PULLUP);
+
+  digitalWrite(OUT1ON, HIGH);
+  delay(100);
+  digitalWrite(OUT1ON, LOW);
+
+  digitalWrite(OUT2ON, HIGH);
+  delay(100);
+  digitalWrite(OUT2ON, LOW);
 
   if (IWatchdog.isReset(true)) {
     // LED blinks to indicate reset

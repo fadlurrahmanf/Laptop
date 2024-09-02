@@ -83,7 +83,7 @@ String WIFI_PASS =  "kayabiasa";
 // #define DNS1_IPADDRESS      "192.168.0.1"    
 // #define DNS2_IPADDRESS      "192.168.0.2"    
 
-String MQTT_ADDR  = "192.168.116.180";
+String MQTT_ADDR  = "192.168.100.180";
 String MQTT_PORT  = "1883";// Default MQTT port is 1883
 #define MQTT_AUTH   //Enable MQTT authentication 
 String MQTT_USER  = "deviot";
