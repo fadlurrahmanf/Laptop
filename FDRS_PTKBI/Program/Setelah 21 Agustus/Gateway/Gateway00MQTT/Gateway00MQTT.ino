@@ -10,7 +10,7 @@
 #include <SimpleSerialShell.h>
 #include <EEPROM.h>
 
-const char ctrlByte = '1';
+const char ctrlByte = '2';
 const uint8_t eeprom_size = 255;
 
 #define DIGINP 14

@@ -116,14 +116,14 @@ int nodeRestart(int /*argc*/, char ** /*argv*/) {
 void setup() {
 
   EEPROM.get(0, id);
-  if (id.configId == 0x43) {
+  if (id.configId == 0x46) {
     UNIT_MAC = id.UartGtwyId;
     ESPNOW_NEIGHBOR_1 = id.EspNg1Id;
     ESPNOW_NEIGHBOR_2 = id.EspNg2Id;
     LORA_NEIGHBOR_1 = id.LoraNg1Id;
     LORA_NEIGHBOR_2 = id.LoraNg2Id;
   } else {
-    id.configId = 0x43;
+    id.configId = 0x46;
     id.UartGtwyId = UNIT_MAC;
     id.EspNg1Id = ESPNOW_NEIGHBOR_1;
     id.EspNg2Id = ESPNOW_NEIGHBOR_2;
