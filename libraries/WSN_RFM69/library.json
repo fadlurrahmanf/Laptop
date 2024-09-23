@@ -1,0 +1,20 @@
+{
+  "name": "WSN_RFM69",
+  "version": "1.0.1",
+  "keywords": "rf, radio, wireless, spi, lowpowerlab, wsn, network, node, mote, wireless sensor network",
+  "description": "This is a library for developing Wireless Sensor Network using RFM69 LowPowerLab Library.",
+  "repository":
+  {
+    "type": "git",
+    "url": "https://github.com/SunitRaut/WSN-for-RFM69-LowPowerLab"
+  },
+  "frameworks": "arduino",
+  "platforms": "atmelavr",
+  "dependencies":
+  [
+    {
+      "name": "RFM69_LowPowerLab",
+      "authors": "Felix Rusu"
+    }
+  ]
+}
