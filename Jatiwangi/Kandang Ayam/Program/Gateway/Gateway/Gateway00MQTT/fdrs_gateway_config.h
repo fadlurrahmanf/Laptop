@@ -72,8 +72,8 @@ long lastTimeOut = millis();
 //#define USE_LR  // Use ESP-NOW LR mode (ESP32 only)
 
 // WiFi and MQTT Credentials  -- These will override the global settings
-String WIFI_SSID =  "KandangAyam";  
-String WIFI_PASS =  "kandangayam";
+String WIFI_SSID =  "MesinTetas001";  
+String WIFI_PASS =  "mesintetas";
 
 // Use Static IP Address for WiFi connections
 // #define USE_STATIC_IPADDRESS     

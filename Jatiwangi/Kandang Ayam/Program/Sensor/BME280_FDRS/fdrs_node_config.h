@@ -3,8 +3,8 @@
 //  Sensor Configuration
 
 
-#define READING_ID    1   //Unique ID for this sensor
-#define GTWY_MAC      0x01 //Address of the nearest gateway
+#define READING_ID    123   //Unique ID for this sensor
+#define GTWY_MAC      0x06 //Address of the nearest gateway
 
 #define USE_ESPNOW
 //#define USE_LORA
@@ -45,3 +45,4 @@
 #define STD_OFFSET      (-6)                // Local standard time offset in hours from UTC - if unsure, check https://time.is
 #define DST_OFFSET      (STD_OFFSET + 1)    // Local savings time offset in hours from UTC - if unsure, check https://time.is
 #define TIME_PRINTTIME    15     // Time, in minutes, between printing local time to debug
+long tdstBegin;
