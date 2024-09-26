@@ -1,7 +1,4 @@
-#define K1 12
-#define K2 13
-#define K3 14
-#define K4 16
+#define K1 16
 
 #include "fdrs_node_config.h"
 #include <fdrs_node.h>
@@ -14,41 +11,19 @@ void fdrs_recv_cb(DataReading theData) {
   DBG("Data: " + String(theData.d));
 
   if (theData.id == READING_ID) {
+    DBG("ID Sesuai");
     if ((theData.d == 1 || theData.d == 0) && theData.id >= 256) {
+      DBG("Data Valid");
       switch (theData.t) {
         case 1:
+          DBG("Case 1 Aktif");
           if (theData.d == 1) {
-            digitalWrite(K1, HIGH);
-            currentRead = bitSet(currentRead, theData.t - 1);
-          } else if (!theData.d) {
+            DBG("K1 Nyala");
             digitalWrite(K1, LOW);
-            currentRead = bitClear(currentRead, theData.t - 1);
-          }
-          break;
-        case 2:
-          if (theData.d == 1) {
-            digitalWrite(K2, HIGH);
             currentRead = bitSet(currentRead, theData.t - 1);
           } else if (!theData.d) {
-            digitalWrite(K2, LOW);
-            currentRead = bitClear(currentRead, theData.t - 1);
-          }
-          break;
-        case 3:
-          if (theData.d == 1) {
-            digitalWrite(K3, HIGH);
-            currentRead = bitSet(currentRead, theData.t - 1);
-          } else if (!theData.d) {
-            digitalWrite(K3, LOW);
-            currentRead = bitClear(currentRead, theData.t - 1);
-          }
-          break;
-        case 4:
-          if (theData.d == 1) {
-            digitalWrite(K4, HIGH);
-            currentRead = bitSet(currentRead, theData.t - 1);
-          } else if (!theData.d) {
-            digitalWrite(K4, LOW);
+            DBG("K1 Mati");
+            digitalWrite(K1, HIGH);
             currentRead = bitClear(currentRead, theData.t - 1);
           }
           break;
@@ -72,13 +47,7 @@ void setup() {
   subscribeFDRS(READING_ID);
 
   pinMode(K1, OUTPUT);
-  pinMode(K2, OUTPUT);
-  pinMode(K3, OUTPUT);
-  pinMode(K4, OUTPUT);
-  digitalWrite(K1, LOW);
-  digitalWrite(K2, LOW);
-  digitalWrite(K3, LOW);
-  digitalWrite(K4, LOW);
+  digitalWrite(K1, HIGH);
 }
 void loop() {
   loopFDRS();

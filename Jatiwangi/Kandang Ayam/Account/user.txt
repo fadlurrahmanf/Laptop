@@ -1,3 +1,10 @@
 router :
 user admin
 password kadangayam123
+
+wifi :
+ssid KandangAyam
+pass kandangayam
+
+ip raspi
+192.168.49.101

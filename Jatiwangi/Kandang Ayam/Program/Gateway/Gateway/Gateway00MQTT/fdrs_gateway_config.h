@@ -89,9 +89,9 @@ String MQTT_PORT  = "1883";// Default MQTT port is 1883
 String MQTT_USER  = "deviot";
 String MQTT_PASS  = "deviot";
 
-String TOPIC_DATA  =  "iotaG/data";
-String TOPIC_STATUS = "iotaG/status";
-String TOPIC_COMMAND = "iotaG/command";
+String TOPIC_DATA  =  "iotaStorage/data";
+String TOPIC_STATUS = "iotaStorage/status";
+String TOPIC_COMMAND = "iotaStorage/command";
 
 // NTP Time settings
 #define USDST
