@@ -1,0 +1,24 @@
+Id Lokasi Sensor
+501 : kiri depan
+508 : kiri belakang
+509 : tengah depan
+512 : tengah belakang
+511 : kanan depan
+520 : kanan belakang	
+
+Untuk yg Mesin tetas A sudah selesai :
+1. Switch mode IoT dan mode Manual(Existing)
+2. Monitoring Temperature Humidity (mode IoT dan mode Manual)
+3. Kontrol Relay IoT : Motor RPM, Heater, Motor kemiringan, Humidifier
+
+Device :
+1. Mini Server (Raspberry pi)
+2. Router TP-Link
+3. Gateway ESP
+4. Panel switch mode IoT (Relay 220VAC 4 channel)
+5. Power Supply 24VDC
+6. Node Kontrol Relay DryContact 2 channel #1 (Motor RPM,Motor Kemiringan)
+7. Node Kontrol Relay DryContact 2 channel #2 (Heater)
+8. Node Humidifier #1 ( Node Relay DryContactHumidifier, Tabung, Kipas, Humidifier, Limit Switch High/Low)
+9. Node Humidifier #2 ( Node Relay DryContactHumidifier, Tabung, Kipas, Humidifier, Limit Switch High/Low)
+10. Ember (Penampungan air Humidifier)

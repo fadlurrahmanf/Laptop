@@ -3,7 +3,7 @@
 //  Sensor Configuration
 
 
-#define READING_ID    504   //Unique ID for this sensor ------> mulai dari 501 keatas
+#define READING_ID    520   //Unique ID for this sensor ------> mulai dari 501 keatas
 #define GTWY_MAC      0x01 //Address of the nearest gateway
 
 #define USE_ESPNOW

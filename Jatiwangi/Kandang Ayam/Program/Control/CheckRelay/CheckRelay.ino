@@ -8,7 +8,7 @@ void setup() {
   pinMode(K2, OUTPUT);
   pinMode(K3, OUTPUT);
   pinMode(K4, OUTPUT);
-  Serial.begin(115200);
+  Serial.begin(115200);//12 13
 }
 
 void loop() {
@@ -17,20 +17,24 @@ void loop() {
   Serial.println("Nyala -------------- 1");
   delay(3000);
   digitalWrite(K1, LOW);
+  Serial.println("Mati -------------- 1");
 
   digitalWrite(K2, HIGH);
   Serial.println("Nyala -------------- 2");
   delay(3000);
   digitalWrite(K2, LOW);
+  Serial.println("Mati -------------- 2");
 
   digitalWrite(K3, HIGH);
   Serial.println("Nyala -------------- 3");
   delay(3000);
   digitalWrite(K3, LOW);
+  Serial.println("Mati -------------- 3");
 
   digitalWrite(K4, HIGH);
   Serial.println("Nyala -------------- 4");
   delay(3000);
   digitalWrite(K4, LOW);
+  Serial.println("Mati -------------- 4");
   delay(10000);
 }

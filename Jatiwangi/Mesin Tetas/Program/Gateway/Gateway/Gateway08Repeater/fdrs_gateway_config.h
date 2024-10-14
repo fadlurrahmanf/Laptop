@@ -3,11 +3,11 @@
 //  GATEWAY CONFIGURATION
 
 //Addresses
-uint8_t UNIT_MAC = 0x08;  // The address of this gateway
+uint8_t UNIT_MAC = 0x02;  // The address of this gateway
 
-uint8_t ESPNOW_NEIGHBOR_1 = 0x00;  // Address of ESP-NOW neighbor #1
+uint8_t ESPNOW_NEIGHBOR_1 = 0x01;  // Address of ESP-NOW neighbor #1
 uint8_t ESPNOW_NEIGHBOR_2 = 0x00;  // Address of ESP-NOW neighbor #2
-uint8_t LORA_NEIGHBOR_1  =  0x09;  // Address of LoRa neighbor #1
+uint8_t LORA_NEIGHBOR_1  =  0x00;  // Address of LoRa neighbor #1
 uint8_t LORA_NEIGHBOR_2  =  0x00;  // Address of LoRa neighbor #2
 long lastTimeOut;
 // Interfaces

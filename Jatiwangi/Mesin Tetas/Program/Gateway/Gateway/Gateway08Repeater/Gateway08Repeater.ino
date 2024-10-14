@@ -145,14 +145,14 @@ void setup() {
   pinMode(LED, OUTPUT);
   EEPROM.begin(sizeof(idStruc));
   EEPROM.get(0, id);
-  if (id.configId == 0x43) {
+  if (id.configId == 0x47) {
     UNIT_MAC = id.LoRaRepeaterId;
     ESPNOW_NEIGHBOR_1 = id.EspNg1Id;
     ESPNOW_NEIGHBOR_2 = id.EspNg2Id;
     LORA_NEIGHBOR_1 = id.LoraNg1Id;
     LORA_NEIGHBOR_2 = id.LoraNg2Id;
   } else {
-    id.configId = 0x43;
+    id.configId = 0x47;
     id.LoRaRepeaterId = UNIT_MAC;
     id.EspNg1Id = ESPNOW_NEIGHBOR_1;
     id.EspNg2Id = ESPNOW_NEIGHBOR_2;
